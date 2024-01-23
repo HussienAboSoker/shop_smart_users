@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/widget/customText.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -23,7 +24,8 @@ class SettingsScreen extends StatelessWidget {
               themeProvider.setdarktheme(value);
             },
             value: themeProvider.getIsdarkTheme,
-          )
+          ),
+       CustomText(label: "hleo",),
         ],
       ),
     );

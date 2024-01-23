@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
       ) {
         return MaterialApp(
           title: 'shop smart',
+          debugShowCheckedModeBanner: false,
           theme: AppThemes.themeData(
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
           home: const SettingsScreen(),

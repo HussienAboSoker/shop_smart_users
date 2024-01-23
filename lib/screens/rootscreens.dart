@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+import 'package:shop_smart_users/screens/homescreen.dart';
+import 'package:shop_smart_users/screens/personscreen.dart';
+import 'package:shop_smart_users/screens/searchscreen.dart';
+import 'package:shop_smart_users/screens/setting_sceen.dart';
+
+class RootScreens extends StatefulWidget {
+  const RootScreens({super.key});
+
+  @override
+  _RootScreensState createState() => _RootScreensState();
+}
+
+class _RootScreensState extends State<RootScreens> {
+  late PageController _pageController;
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        children: [
+          HomeScreenPage(),
+          const SettingsScreen(),
+          SearchScreenPage(),
+          PersonScreenPage(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          _pageController.animateToPage(
+            index,
+            duration:const Duration(milliseconds: 300),
+            curve: Curves.easeInOut,
+          );
+        },
+        items: const[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Person',
+          ),
+        ],
+      ),
+    );
+  }
+}

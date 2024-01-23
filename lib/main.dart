@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constans/appthem.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
-import 'package:shop_smart_users/screens/setting_sceen.dart';
+import 'package:shop_smart_users/screens/rootscreens.dart';
+
 
 void main() {
   runApp(
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppThemes.themeData(
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
-          home: const SettingsScreen(),
+          home: const RootScreens(),
         );
       }),
     );

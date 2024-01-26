@@ -5,22 +5,18 @@ class AppThemes {
   static ThemeData themeData(
       {required bool isdarktheme, required BuildContext context}) {
     return ThemeData(
-      scaffoldBackgroundColor: isdarktheme
-          ? AppColors.darkscafuldcolor
-          : AppColors.lightscafuldcolor,
-          brightness: isdarktheme?Brightness.dark:Brightness.light,
-      //brightness: isdarktheme ? Brightness.dark : Brightness.light,
-      cardColor:  isdarktheme
-          ? AppColors.darkprimary
-          : AppColors.lightcardcolor,
-      appBarTheme: AppBarTheme(
-       color: 
-           Color.fromARGB(49, 72, 49, 110)
-        
-      )  
-          
-         
-         
-    );
+        scaffoldBackgroundColor: isdarktheme
+            ? AppColors.darkscafuldcolor
+            : AppColors.lightscafuldcolor,
+        brightness: isdarktheme ? Brightness.dark : Brightness.light,
+        //brightness: isdarktheme ? Brightness.dark : Brightness.light,
+        cardColor:
+            isdarktheme ? AppColors.darkprimary : AppColors.lightcardcolor,
+        appBarTheme:const AppBarTheme(color: Color.fromARGB(49, 72, 49, 110)),
+        iconButtonTheme: IconButtonThemeData(
+            style: ButtonStyle(
+          iconColor:
+              MaterialStateProperty.all(Color.fromARGB(255, 97, 37, 113)),
+        )));
   }
 }

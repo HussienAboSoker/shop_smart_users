@@ -4,7 +4,7 @@ class HomeScreenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Home Screen'),
+      child: IconButton(onPressed: () {}, icon: Icon(Icons.abc)),
     );
   }
 }

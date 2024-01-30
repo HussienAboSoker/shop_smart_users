@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 class SearchScreenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Search Screen'),
+    return Column(
+      children: [
+      Image.asset("assets/images/empty_search.png ",
+      height: 30,width: 30,),
+      ],
     );
   }
 }

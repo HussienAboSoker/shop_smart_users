@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Title extends StatelessWidget {
-  const Title({
+class CustomTitle extends StatelessWidget {
+  const CustomTitle({
     super.key,
     required this.label,
      this.fontSize=12,

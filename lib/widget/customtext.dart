@@ -4,9 +4,9 @@ class CustomText extends StatelessWidget {
   const CustomText({
     super.key,
     required this.label,
-     this.fontSize=12,
+     this.fontSize=14,
     // this.decoration=Decoration,
-     this.fontWeight=FontWeight.normal,  
+     this.fontWeight=FontWeight.bold,  
   });
   final String label;
   final double fontSize;

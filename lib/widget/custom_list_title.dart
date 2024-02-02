@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/constans/imagepath.dart';
 
 class CustomListTitle extends StatelessWidget {
   const CustomListTitle(
@@ -13,7 +12,11 @@ class CustomListTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Image.asset(imagePath),
+      leading: Image.asset(
+        imagePath,
+        height: 20,
+        width: 20,
+      ),
       title: Text(title),
       trailing: IconButton(
         icon: const Icon(Icons.arrow_right),

@@ -22,8 +22,8 @@ class _RootScreensState extends State<RootScreens> {
     screens = [
       HomeScreenPage(),
       const SettingsScreen(),
-      SearchScreenPage(),
-      PersonScreenPage(),
+    const  SearchScreenPage(),
+     const PersonScreenPage(),
     ];
     _pageController = PageController(initialPage: _currentIndex);
   }

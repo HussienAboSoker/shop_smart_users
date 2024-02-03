@@ -4,25 +4,29 @@ class CustomTitle extends StatelessWidget {
   const CustomTitle({
     super.key,
     required this.label,
-     this.fontSize=12,
+    this.fontSize = 14,
     // this.decoration=Decoration,
-     this.fontWeight=FontWeight.normal,  
+    this.fontWeight = FontWeight.normal,
+    this.maxlines = 1,
   });
   final String label;
   final double fontSize;
   final FontWeight fontWeight;
- // final Color color;
+  final int maxlines;
+  // final Color color;
   //final Decoration? decoration;
   @override
   Widget build(BuildContext context) {
     return Text(
       label,
-      style: const TextStyle(
-      //  color: color,
-        fontSize: 18,
+      maxLines: maxlines,
+      overflow: TextOverflow.ellipsis,
+      style: TextStyle(
+        //  color: color,
+        fontSize: fontSize,
         fontWeight: FontWeight.bold,
-       // decoration: decoration,
-       
+
+        // decoration: decoration,
       ),
     );
   }

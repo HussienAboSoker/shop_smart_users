@@ -5,10 +5,11 @@ class AppThemes {
   static ThemeData themeData(
       {required bool isdarktheme, required BuildContext context}) {
     return ThemeData(
-      // bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
         
-      //   backgroundColor:isdarktheme ? AppColors.darkprimary : AppColors.lightcardcolor ,
-      // ),
+        selectedItemColor:isdarktheme ? AppColors.darkprimary :AppColors.darkprimary,
+        unselectedItemColor:  isdarktheme ? Colors.white :Colors.black ,
+      ),
         // iconTheme: IconThemeData(
         //   color: isdarktheme ? AppColors.darkprimary : AppColors.lightcardcolor,
         // ),

@@ -7,12 +7,13 @@ class CustomsubTitle extends StatelessWidget {
      this.fontSize=14,
     // this.decoration=Decoration,
      this.fontWeight=FontWeight.bold,
-     this.maxlines=2,  
+     this.maxlines=2,  this.color,  
   });
   final String label;
   final double fontSize;
   final FontWeight fontWeight;
   final int maxlines;
+  final Color? color;
  // final Color color;
   //final Decoration? decoration;
   @override

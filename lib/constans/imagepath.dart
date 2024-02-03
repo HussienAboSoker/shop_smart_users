@@ -25,6 +25,7 @@ class ImagePath {
   static String logout = "assets/images/profile/logout.png";
   static String privacy = "assets/images/profile/privacy.png";
   static String recent = "assets/images/profile/recent.png";
+  static String darkOrLight = "assets/images/profile/theme.png";
   //
   static String addressMap = "assets/images/address_map.png";
   static String cloudy = "assets/images/cloudy.png";

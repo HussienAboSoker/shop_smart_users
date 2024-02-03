@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/homescreen.dart';
 import 'package:shop_smart_users/screens/personscreen.dart';
 import 'package:shop_smart_users/screens/searchscreen.dart';
-import 'package:shop_smart_users/screens/setting_sceen.dart';
+import 'package:shop_smart_users/screens/cart/cart_sceen.dart';
 
 class RootScreens extends StatefulWidget {
   const RootScreens({super.key});
@@ -20,8 +20,8 @@ class _RootScreensState extends State<RootScreens> {
   void initState() {
     super.initState();
     screens = [
-      HomeScreenPage(),
-      const SettingsScreen(),
+     const HomeScreenPage(),
+      const CartSceen(),
     const  SearchScreenPage(),
      const PersonScreenPage(),
     ];
@@ -47,7 +47,8 @@ class _RootScreensState extends State<RootScreens> {
         children: screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        elevation: 16,
+       
+       // elevation: 16,
        
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -59,14 +60,16 @@ class _RootScreensState extends State<RootScreens> {
         },
         items: const [
           BottomNavigationBarItem(
-            backgroundColor: Color.fromARGB(31, 148, 51, 51),
-            icon: Icon(Icons.home),
+           // backgroundColor: Color.fromARGB(31, 148, 51, 51),
+            icon: Icon(Icons.home,
+          //  color: Colors.amber,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
             
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Badge(label: Text("9"),child: Icon(Icons.card_travel_sharp)),
+            label: 'Cart',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.search),

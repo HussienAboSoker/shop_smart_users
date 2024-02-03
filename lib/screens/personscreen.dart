@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constans/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
-import 'package:shop_smart_users/widget/customtext.dart';
+
 
 import 'package:shop_smart_users/widget/title.dart';
 
@@ -20,48 +20,56 @@ class PersonScreenPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //image ,2 text(column), icon
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Visibility(
-                  visible: true,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.amber, //Theme.of(context).cardColor,
-                          //borderRadius: BorderRadius.circular(12),
-                          border: Border.all(
-                            color: Colors.black,
-                            //Theme.of(context).colorScheme.background ,
-                            // style: ,
-                            width: 3,
-                          ),
-                          image: const DecorationImage(
-                            image:
-                                AssetImage("assets/images/profile/recent.png "),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 7,
-                      ),
-                      const Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomTitle(
-                            label: 'Hussien mostafa',
-                          ),
-                          CustomsubTitle(label: 'Flutter developer'),
-                        ],
-                      ),
-                    ],
+           const   ListTile(
+                  leading: CircleAvatar(backgroundImage: AssetImage("assets/images/sahs.jpeg,",
                   ),
+                  maxRadius: 30,minRadius: 10,),
+                  title:  Text("Hussien mostafa"),
+                  subtitle:  Text("Flutter devoloper"),
                 ),
-              ),
+              //image ,2 text(column), icon
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+              //   child: Visibility(
+              //     visible: true,
+              //     child: Row(
+              //       children: [
+              //
+              //         // Container(
+              //         //   height: 60,
+              //         //   width: 60,
+              //         //   decoration: BoxDecoration(
+              //         //     shape: BoxShape.circle,
+              //         //    // color: Colors.amber, //Theme.of(context).cardColor,
+              //         //     //borderRadius: BorderRadius.circular(12),
+              //         //     border: Border.all(
+              //         //       color: Colors.black,
+              //         //       //Theme.of(context).colorScheme.background ,
+              //         //       // style: ,
+              //         //       width: 3,
+              //         //     ),
+              //         //     // image:  DecorationImage(
+              //         //     //   image:
+
+              //         //     ),
+              //         //   ),
+              //         // ),
+              //         const SizedBox(
+              //           width: 7,
+              //         ),
+              //         const Column(
+              //           crossAxisAlignment: CrossAxisAlignment.start,
+              //           children: [
+              //             CustomTitle(
+              //               label: 'Hussien mostafa',
+              //             ),
+              //             CustomsubTitle(label: 'Flutter developer'),
+              //           ],
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               const Divider(
                 thickness: 1,
               ),
@@ -95,7 +103,9 @@ class PersonScreenPage extends StatelessWidget {
                 height: 12,
               ),
               const CustomTitle(label: 'Setting'),
+              //dark or light
               SwitchListTile(
+                secondary: Image.asset(ImagePath.darkOrLight, height: 20),
                 title: Text(
                     themeProvider.getIsdarkTheme ? "Dark Mode" : "light mode"),
                 onChanged: (value) {
@@ -108,10 +118,26 @@ class PersonScreenPage extends StatelessWidget {
                 imagePath: ImagePath.recent,
                 title: 'viewed recentaly',
               ),
+              //address
               CustomListTitle(
                 function: () {},
                 imagePath: ImagePath.address,
                 title: 'Address',
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: ElevatedButton.icon(
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.red),
+                        ),
+                    onPressed: () {},
+                    icon: const Icon(Icons.login),
+                    label: const Text("Login")),
+              ),
+              const SizedBox(
+                height: 20,
               ),
             ],
           ),

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
@@ -54,6 +56,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 ),
                 
               ),
+          onChanged: (value) {
+            print(value);
+          },
+          onSubmitted: (value) {
+            print(value);
+          },
             ),
           ),
         );

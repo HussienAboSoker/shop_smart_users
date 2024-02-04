@@ -8,11 +8,13 @@ class CustomTitle extends StatelessWidget {
     // this.decoration=Decoration,
     this.fontWeight = FontWeight.normal,
     this.maxlines = 1,
+    this.color,
   });
   final String label;
   final double fontSize;
   final FontWeight fontWeight;
   final int maxlines;
+  final Color? color;
   // final Color color;
   //final Decoration? decoration;
   @override

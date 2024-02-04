@@ -20,7 +20,7 @@ class _RootScreensState extends State<RootScreens> {
   void initState() {
     super.initState();
     screens = [
-     const HomeScreenPage(),
+      HomeScreenPage(),
       const CartSceen(),
     const  SearchScreenPage(),
      const PersonScreenPage(),

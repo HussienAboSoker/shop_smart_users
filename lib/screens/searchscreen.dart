@@ -12,6 +12,7 @@ class SearchScreenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading: Image.asset(ImagePath.shopingCart),
         title:const Text("Search"),
       ) ,

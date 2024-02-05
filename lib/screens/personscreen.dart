@@ -109,7 +109,7 @@ class PersonScreenPage extends StatelessWidget {
                 title: Text(
                     themeProvider.getIsdarkTheme ? "Dark Mode" : "light mode"),
                 onChanged: (value) {
-                  themeProvider.setdarktheme(value);
+                  themeProvider.settheme(value);
                 },
                 value: themeProvider.getIsdarkTheme,
               ),

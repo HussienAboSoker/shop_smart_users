@@ -35,7 +35,9 @@ class SearchScreenPage extends StatelessWidget {
                     padding:  EdgeInsets.all(8.0),
                     child: CustomProduct(),
                   );
-                }, itemCount: 90, crossAxisCount: 2),
+                }, itemCount: 90, crossAxisCount: 2,
+                
+                ),
               ),
             ),
           ],

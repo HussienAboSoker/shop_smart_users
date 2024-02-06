@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/constans/imagepath.dart';
+import 'package:shop_smart_users/constants/imagepath.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});

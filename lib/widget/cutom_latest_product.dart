@@ -1,6 +1,6 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/widget/customtext.dart';
+
 import 'package:shop_smart_users/widget/title.dart';
 
 class CutomLatestProduct extends StatelessWidget {
@@ -9,7 +9,8 @@ class CutomLatestProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Card(
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: SizedBox(
         width: size.width * 0.22,
         height: size.height * 1,
@@ -27,35 +28,41 @@ class CutomLatestProduct extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const CustomTitle(
-              label:
-                  "sahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahs",
-              maxlines: 2,
-            ),
-            const Text(
-              "1245\$",
-              style: TextStyle(
-                color: Colors.green,
+            const Flexible(
+              child: CustomTitle(
+                label:
+                    "sahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahs",
+                maxlines: 2,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.done,
-                    color: Colors.blue,
-                  ),
+            const FittedBox(
+              child: Text(
+                "1245\$",
+                style: TextStyle(
+                  color: Colors.green,
                 ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.favorite,
-                    color: Colors.red,
+              ),
+            ),
+            Flexible(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.done,
+                      color: Colors.blue,
+                    ),
                   ),
-                ),
-              ],
+                  IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

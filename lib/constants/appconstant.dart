@@ -1,4 +1,4 @@
-import 'package:shop_smart_users/constans/imagepath.dart';
+import 'package:shop_smart_users/constants/imagepath.dart';
 
 class AppContsants {
   static  List banners = [

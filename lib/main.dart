@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_smart_users/constans/appthem.dart';
+import 'package:shop_smart_users/constants/appthem.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
 import 'package:shop_smart_users/screens/rootscreens.dart';
 

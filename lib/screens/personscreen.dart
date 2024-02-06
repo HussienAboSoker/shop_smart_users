@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_smart_users/constans/imagepath.dart';
+import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
 

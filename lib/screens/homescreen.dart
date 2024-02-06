@@ -1,7 +1,7 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/constans/appconstant.dart';
-import 'package:shop_smart_users/constans/imagepath.dart';
+import 'package:shop_smart_users/constants/appconstant.dart';
+import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/widget/cutom_latest_product.dart';
 import 'package:shop_smart_users/widget/title.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/constans/appcolors.dart';
+import 'package:shop_smart_users/constants/appcolors.dart';
 
 class AppThemes {
   static ThemeData themeData(

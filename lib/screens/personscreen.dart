@@ -4,8 +4,7 @@ import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
 
-
-import 'package:shop_smart_users/widget/title.dart';
+import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class PersonScreenPage extends StatelessWidget {
   const PersonScreenPage({super.key});
@@ -20,13 +19,17 @@ class PersonScreenPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-           const   ListTile(
-                  leading: CircleAvatar(backgroundImage: AssetImage("assets/images/sahs.jpeg,",
+              const ListTile(
+                leading: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    "assets/images/sahs.jpeg,",
                   ),
-                  maxRadius: 30,minRadius: 10,),
-                  title:  Text("Hussien mostafa"),
-                  subtitle:  Text("Flutter devoloper"),
+                  maxRadius: 30,
+                  minRadius: 10,
                 ),
+                title: Text("Hussien mostafa"),
+                subtitle: Text("Flutter devoloper"),
+              ),
               //image ,2 text(column), icon
               // Padding(
               //   padding: const EdgeInsets.all(8.0),
@@ -130,8 +133,8 @@ class PersonScreenPage extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.red),
-                        ),
+                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                    ),
                     onPressed: () {},
                     icon: const Icon(Icons.login),
                     label: const Text("Login")),

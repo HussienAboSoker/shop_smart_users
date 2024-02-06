@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 
-import 'package:shop_smart_users/widget/customtext.dart';
-import 'package:shop_smart_users/widget/title.dart';
+import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
+import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class CustomProduct extends StatefulWidget {
   const CustomProduct({super.key});
@@ -35,21 +35,24 @@ class _CustomProductState extends State<CustomProduct> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Flexible(
-                 // flex: 5,
+                  // flex: 5,
                   child: CustomTitle(
-                    // color: Colors.green,
+                      // color: Colors.green,
                       label:
                           'fsfkdfskfdklfskd dfdsfdsf dfs fsdfs fsd sfd fsfs  fsdfsdf dfs sfdfs f fs fsfdsfs sf')),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.favorite,color: Colors.red,),
+                icon: const Icon(
+                  Icons.favorite,
+                  color: Colors.red,
+                ),
               ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-            const  CustomsubTitle(
+              const CustomsubTitle(
                 label: '123\$',
                 color: Colors.green,
               ),

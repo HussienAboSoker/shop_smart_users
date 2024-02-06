@@ -27,6 +27,4 @@ class ThemeProvider with ChangeNotifier {
     _isdarktheme = value;
     notifyListeners();
   }
-
-  
 }

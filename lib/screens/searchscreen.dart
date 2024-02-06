@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 
-import 'package:shop_smart_users/widget/custom_product.dart';
+import 'package:shop_smart_users/widget/product/custom_product.dart';
 import 'package:shop_smart_users/widget/cutom_text_filed.dart';
 
 import 'package:shop_smart_users/widget/empty_screen.dart';

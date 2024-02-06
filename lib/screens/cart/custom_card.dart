@@ -2,7 +2,7 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/cart/quantity_sheet.dart';
 
-import '../../widget/title.dart';
+import '../../widget/text/cutom_title.dart';
 
 class CustomCard extends StatelessWidget {
   const CustomCard({super.key});

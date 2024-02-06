@@ -20,10 +20,10 @@ class _RootScreensState extends State<RootScreens> {
   void initState() {
     super.initState();
     screens = [
-    const  HomeScreenPage(),
+      const HomeScreenPage(),
       const CartSceen(),
-    const  SearchScreenPage(),
-     const PersonScreenPage(),
+      const SearchScreenPage(),
+      const PersonScreenPage(),
     ];
     _pageController = PageController(initialPage: _currentIndex);
   }
@@ -47,9 +47,8 @@ class _RootScreensState extends State<RootScreens> {
         children: screens,
       ),
       bottomNavigationBar: BottomNavigationBar(
-       
-       // elevation: 16,
-       
+        // elevation: 16,
+
         currentIndex: _currentIndex,
         onTap: (index) {
           _pageController.animateToPage(
@@ -60,15 +59,15 @@ class _RootScreensState extends State<RootScreens> {
         },
         items: const [
           BottomNavigationBarItem(
-           // backgroundColor: Color.fromARGB(31, 148, 51, 51),
-            icon: Icon(Icons.home,
-          //  color: Colors.amber,
+            // backgroundColor: Color.fromARGB(31, 148, 51, 51),
+            icon: Icon(
+              Icons.home,
+              //  color: Colors.amber,
             ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            
-            icon: Badge(label: Text("9"),child: Icon(Icons.card_travel_sharp)),
+            icon: Badge(label: Text("9"), child: Icon(Icons.card_travel_sharp)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(

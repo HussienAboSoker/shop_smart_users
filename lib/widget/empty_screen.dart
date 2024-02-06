@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:shop_smart_users/widget/customtext.dart';
-import 'package:shop_smart_users/widget/title.dart';
+import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
+import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class EmptySceen extends StatelessWidget {
   const EmptySceen(
@@ -18,7 +18,7 @@ class EmptySceen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(
-        imagePath,
+          imagePath,
           height: 200,
           width: 200,
         ),
@@ -27,12 +27,12 @@ class EmptySceen extends StatelessWidget {
           fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
-         CustomTitle(
+        CustomTitle(
           label: title,
           fontSize: 14,
           fontWeight: FontWeight.bold,
         ),
-         CustomsubTitle(label: subtitle),
+        CustomsubTitle(label: subtitle),
       ],
     );
   }

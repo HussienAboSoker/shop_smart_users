@@ -28,11 +28,11 @@ class CartSceen extends StatelessWidget {
       ),
       body: isemptycart
           ? Center(
-            child: EmptySceen(
-                title: "empty cart",
-                subtitle: "pleeese add cart",
-                imagePath: ImagePath.emptySearch),
-          )
+              child: EmptySceen(
+                  title: "empty cart",
+                  subtitle: "pleeese add cart",
+                  imagePath: ImagePath.emptySearch),
+            )
           : ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {

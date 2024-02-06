@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 
-
 class QunatitySheet extends StatelessWidget {
   const QunatitySheet({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
-    Size size=MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
-         // margin:  EdgeInsets.all(size.longestSide+1),
+          // margin:  EdgeInsets.all(size.longestSide+1),
           height: size.height,
           width: size.width,
           decoration: BoxDecoration(
@@ -27,7 +26,7 @@ class QunatitySheet extends StatelessWidget {
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Text("${index+1}"),
+                    child: Text("${index + 1}"),
                   ),
                 ),
               );

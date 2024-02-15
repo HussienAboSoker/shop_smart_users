@@ -9,9 +9,9 @@ class QunatitySheet extends StatelessWidget {
     return Column(
       children: [
         Container(
-          // margin:  EdgeInsets.all(size.longestSide+1),
-          height: size.height,
-          width: size.width,
+           margin:const  EdgeInsets.all(12),
+          height: 12,
+          width: 20,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
             color: Colors.grey,

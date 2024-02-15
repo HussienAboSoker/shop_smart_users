@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
+import 'package:shop_smart_users/widget/custom_heart.dart';
+import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -26,11 +28,7 @@ class CutomLatestProduct extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child: FancyShimmerImage(
-                  imageUrl: "assets/images/sahs.jpeg",
-                  width: size.width * 0.22,
-                  height: size.height * 0.23,
-                ),
+                child:const CutomFancyImage(),
               ),
               const SizedBox(
                 height: 10,
@@ -61,13 +59,7 @@ class CutomLatestProduct extends StatelessWidget {
                         color: Colors.blue,
                       ),
                     ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                      ),
-                    ),
+                 const  CustomHeart(),
                   ],
                 ),
               ),

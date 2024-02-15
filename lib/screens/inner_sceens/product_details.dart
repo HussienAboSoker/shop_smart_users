@@ -1,5 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_smart_users/widget/custom_heart.dart';
+import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -24,16 +26,9 @@ class _ProductDetailsState extends State<ProductDetails> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //image
-            SizedBox(
+         const   SizedBox(
               height: 230,
-              child: FancyShimmerImage(
-                boxDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                imageUrl: "assets/images/sahs.jpeg",
-                width: double.infinity,
-                height: size.height * 0.2,
-              ),
+              child:CutomFancyImage(),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -71,13 +66,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: Colors.red,
-                        ),
-                      ),
+                  const   CustomHeart(),
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {}, child: const Text("Add to cart")),

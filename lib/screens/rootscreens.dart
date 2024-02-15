@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/screens/homescreen.dart';
+import 'package:shop_smart_users/screens/home/homescreen.dart';
 import 'package:shop_smart_users/screens/personscreen.dart';
 import 'package:shop_smart_users/screens/searchscreen.dart';
 import 'package:shop_smart_users/screens/cart/cart_sceen.dart';

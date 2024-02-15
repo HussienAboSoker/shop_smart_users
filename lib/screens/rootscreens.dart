@@ -48,6 +48,7 @@ class _RootScreensState extends State<RootScreens> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         // elevation: 16,
+        
 
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -79,6 +80,7 @@ class _RootScreensState extends State<RootScreens> {
             label: 'Person',
           ),
         ],
+        
       ),
     );
   }

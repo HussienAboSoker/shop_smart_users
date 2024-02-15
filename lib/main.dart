@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import 'package:shop_smart_users/constants/appthem.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
 import 'package:shop_smart_users/screens/rootscreens.dart';
 
 void main() {
@@ -28,8 +30,13 @@ class MyApp extends StatelessWidget {
           theme: AppThemes.themeData(
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
           home: const RootScreens(),
+          routes: {
+           // '/ProductDetails':(context) =>const ProductDetails(),
+          ProductDetails.nameSceen:(context) =>const ProductDetails(),
+          },
         );
       }),
+   
     );
   }
 }

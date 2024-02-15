@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
@@ -19,7 +20,7 @@ class _CustomProductState extends State<CustomProduct> {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        log("go to scrren product");
+       Navigator.pushNamed(context, ProductDetails.nameSceen);
       },
       child: Column(
         children: [

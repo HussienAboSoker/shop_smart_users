@@ -31,12 +31,11 @@ class MyApp extends StatelessWidget {
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
           home: const RootScreens(),
           routes: {
-           // '/ProductDetails':(context) =>const ProductDetails(),
-          ProductDetails.nameSceen:(context) =>const ProductDetails(),
+            // '/ProductDetails':(context) =>const ProductDetails(),
+            ProductDetails.nameSceen: (context) => const ProductDetails(),
           },
         );
       }),
-   
     );
   }
 }

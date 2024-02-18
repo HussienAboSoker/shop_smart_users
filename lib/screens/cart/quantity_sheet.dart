@@ -5,11 +5,10 @@ class QunatitySheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
-           margin:const  EdgeInsets.all(12),
+          margin: const EdgeInsets.all(12),
           height: 12,
           width: 20,
           decoration: BoxDecoration(

@@ -1,6 +1,5 @@
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/widget/custom_heart.dart';
+import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
@@ -15,7 +14,6 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: const Text("Prduct details"),
@@ -26,9 +24,9 @@ class _ProductDetailsState extends State<ProductDetails> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //image
-         const   SizedBox(
+            const SizedBox(
               height: 230,
-              child:CutomFancyImage(),
+              child: CutomFancyImage(),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -66,14 +64,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                  const   CustomHeart(),
+                      const CustomHeart(),
                       Expanded(
                         child: ElevatedButton(
                             onPressed: () {}, child: const Text("Add to cart")),
                       ),
                     ],
                   ),
-                  //tow text 
+                  //tow text
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -86,7 +84,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 20,
                   ),
                   //more  details
-                 CustomsubTitle(label: "hussien"*200),
+                  CustomsubTitle(label: "hussien" * 200),
                 ],
               ),
             )

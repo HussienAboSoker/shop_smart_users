@@ -6,14 +6,14 @@ class CutomFancyImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      Size size = MediaQuery.of(context).size;
-    return  FancyShimmerImage(
-                boxDecoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                imageUrl: "assets/images/sahs.jpeg",
-                width: double.infinity,
-                height: size.height * 0.2,
-              );
+    Size size = MediaQuery.of(context).size;
+    return FancyShimmerImage(
+      boxDecoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      imageUrl: "assets/images/sahs.jpeg",
+      width: double.infinity,
+      height: size.height * 0.2,
+    );
   }
 }

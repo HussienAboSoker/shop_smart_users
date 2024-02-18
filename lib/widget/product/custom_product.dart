@@ -1,9 +1,6 @@
-import 'dart:developer';
-
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
-import 'package:shop_smart_users/widget/custom_heart.dart';
+import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
@@ -19,24 +16,23 @@ class CustomProduct extends StatefulWidget {
 class _CustomProductState extends State<CustomProduct> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-       Navigator.pushNamed(context, ProductDetails.nameSceen);
+        Navigator.pushNamed(context, ProductDetails.nameSceen);
       },
       child: Column(
         children: [
-         CutomFancyImage(),
-       const   Row(
+          const CutomFancyImage(),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-               Flexible(
+              Flexible(
                   // flex: 5,
                   child: CustomTitle(
                       // color: Colors.green,
                       label:
                           'fsfkdfskfdklfskd dfdsfdsf dfs fsdfs fsd sfd fsfs  fsdfsdf dfs sfdfs f fs fsfdsfs sf')),
-            CustomHeart(),
+              CustomHeart(),
             ],
           ),
           Row(

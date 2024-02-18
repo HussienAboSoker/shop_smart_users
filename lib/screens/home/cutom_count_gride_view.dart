@@ -7,15 +7,15 @@ class CutomcountGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 4,
-                children: List.generate(AppContsants.catigory.length, (index) {
-                  return Cutomcatigory(
-                      image: AppContsants.catigory[index].image,
-                      name: AppContsants.catigory[index].name);
-                }),
-              );
+    return GridView.count(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisCount: 4,
+      children: List.generate(AppContsants.catigory.length, (index) {
+        return Cutomcatigory(
+            image: AppContsants.catigory[index].image,
+            name: AppContsants.catigory[index].name);
+      }),
+    );
   }
 }

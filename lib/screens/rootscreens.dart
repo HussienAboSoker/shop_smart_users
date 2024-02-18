@@ -8,6 +8,7 @@ class RootScreens extends StatefulWidget {
   const RootScreens({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RootScreensState createState() => _RootScreensState();
 }
 
@@ -48,7 +49,6 @@ class _RootScreensState extends State<RootScreens> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         // elevation: 16,
-        
 
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -80,7 +80,6 @@ class _RootScreensState extends State<RootScreens> {
             label: 'Person',
           ),
         ],
-        
       ),
     );
   }

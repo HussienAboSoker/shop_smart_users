@@ -6,16 +6,16 @@ class CutomListviewLastProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      Size size = MediaQuery.of(context).size;
-    return    SizedBox(
-                height: size.height * 0.44,
-                child: ListView.builder(
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return const CutomLatestProduct();
-                  },
-                ),
-              );
+    Size size = MediaQuery.of(context).size;
+    return SizedBox(
+      height: size.height * 0.44,
+      child: ListView.builder(
+        itemCount: 10,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return const CutomLatestProduct();
+        },
+      ),
+    );
   }
 }

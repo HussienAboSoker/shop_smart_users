@@ -1,9 +1,6 @@
-import 'dart:developer';
-
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
-import 'package:shop_smart_users/widget/custom_heart.dart';
+import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
@@ -16,7 +13,7 @@ class CutomLatestProduct extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-         Navigator.pushNamed(context, ProductDetails.nameSceen);
+        Navigator.pushNamed(context, ProductDetails.nameSceen);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -28,7 +25,7 @@ class CutomLatestProduct extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
-                child:const CutomFancyImage(),
+                child: const CutomFancyImage(),
               ),
               const SizedBox(
                 height: 10,
@@ -59,7 +56,7 @@ class CutomLatestProduct extends StatelessWidget {
                         color: Colors.blue,
                       ),
                     ),
-                 const  CustomHeart(),
+                    const CustomHeart(),
                   ],
                 ),
               ),

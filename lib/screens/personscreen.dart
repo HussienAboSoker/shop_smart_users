@@ -142,17 +142,15 @@ class PersonScreenPage extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
-                          const Color.fromARGB(197, 238, 34, 20)),
-                      foregroundColor: MaterialStateProperty.all(Colors.white),
+                     backgroundColor: MaterialStateProperty.all(const Color.fromARGB(197, 238, 34, 20)),
+                     foregroundColor:    MaterialStateProperty.all(Colors.white),
                     ),
-                    onPressed: () async {
-                      await AppFunction.showErrorOrWarning(context,
-                          function: () {},
-                          subtitle: "are you sure you want to signout");
+                    onPressed: ()async {
+                  await  AppFunction.showErrorOrWarning(context,
+                  function: (){},subtitle: "are you sure you want to signout");
                     },
                     icon: const Icon(Icons.login),
-                    label: const Text("Login")),
+                    label: const Text("Login"),),
               ),
               const SizedBox(
                 height: 20,

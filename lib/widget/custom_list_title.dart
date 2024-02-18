@@ -12,6 +12,9 @@ class CustomListTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () {
+        function();
+      },
       leading: Image.asset(
         imagePath,
         height: 20,
@@ -20,7 +23,7 @@ class CustomListTitle extends StatelessWidget {
       title: Text(title),
       trailing: IconButton(
         icon: const Icon(Icons.arrow_right),
-        onPressed: function(),
+        onPressed: () {},
       ),
     );
   }

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/screens/inner_sceens/view_recently.dart';
+import 'package:shop_smart_users/screens/inner_sceens/wishlist.dart';
+import 'package:shop_smart_users/services/app_function.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
@@ -86,13 +89,19 @@ class PersonScreenPage extends StatelessWidget {
                 imagePath: ImagePath.order,
                 title: 'All product',
               ),
+              //WishList
               CustomListTitle(
-                function: () {},
+                function: () {
+                  Navigator.pushNamed(context, WishList.nameSceen);
+                },
                 imagePath: ImagePath.wishlist,
                 title: 'wishlist',
               ),
+              //viewed recentaly
               CustomListTitle(
-                function: () {},
+                function: () async {
+                  await Navigator.pushNamed(context, ViewRecently.nameSceen);
+                },
                 imagePath: ImagePath.recent,
                 title: 'viewed recentaly',
               ),
@@ -133,9 +142,15 @@ class PersonScreenPage extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                      backgroundColor: MaterialStateProperty.all(
+                          const Color.fromARGB(197, 238, 34, 20)),
+                      foregroundColor: MaterialStateProperty.all(Colors.white),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      await AppFunction.showErrorOrWarning(context,
+                          function: () {},
+                          subtitle: "are you sure you want to signout");
+                    },
                     icon: const Icon(Icons.login),
                     label: const Text("Login")),
               ),

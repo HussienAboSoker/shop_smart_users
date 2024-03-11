@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
+import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 
@@ -18,8 +18,8 @@ class CutomLatestProduct extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-          width: size.width * 0.22,
-          height: size.height * 1,
+          width: size.width * 0.30,
+         height: size.height *2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -27,13 +27,11 @@ class CutomLatestProduct extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8),
                 child: const CutomFancyImage(),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+            
               const Flexible(
                 child: CustomTitle(
                   label:
-                      "sahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahssahs",
+                      "ffhfjgfdjg djgdfjgdkfj dfjgfdjk jdfgjdf djkgjdf gjkdgjfdgjdfgjkdfgjfgdfkgjdfkjdfjgfdjgfdkgjfdgkdfgjdkgjdfkgjfdgjfdkjgfdkfdjgfkjdg jkdfgjdfjkgdfkgjfdkjgfjdjkf",
                   maxlines: 2,
                 ),
               ),
@@ -47,7 +45,7 @@ class CutomLatestProduct extends StatelessWidget {
               ),
               Flexible(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
                       onPressed: () {},
@@ -56,7 +54,7 @@ class CutomLatestProduct extends StatelessWidget {
                         color: Colors.blue,
                       ),
                     ),
-                    const CustomHeart(),
+                   const CustomHeart(),
                   ],
                 ),
               ),

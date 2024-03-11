@@ -5,6 +5,20 @@ class AppThemes {
   static ThemeData themeData(
       {required bool isdarktheme, required BuildContext context}) {
     return ThemeData(
+      inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.grey, width: 2.0),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.blue, width: 2.0),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.red, width: 2.0),
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor:
             isdarktheme ? AppColors.darkprimary : AppColors.darkprimary,

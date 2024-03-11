@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
+
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class AppFunction {
@@ -59,6 +60,73 @@ class AppFunction {
               ),
               const SizedBox(
                 height: 10,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  static Future<void> pickImageDialog(
+    BuildContext context,{
+    //  required String subtitle,
+    required Function funcamera,
+    required Function funGalary,
+    required Function funRemove,
+    }
+    // bool iserror = false,
+  ) async {
+    await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Center(
+            child: CustomTitle(label: 'choose option'),
+          ),
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.camera_alt_rounded),
+                  label: const Text("  camira "),
+                  onPressed: () {
+                    funcamera();
+                  },
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.image),
+                  label: const Text(" callary "),
+                  onPressed: () {
+                    funGalary();
+                  },
+                ),
+              ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: ElevatedButton.icon(
+                  icon: const Icon(
+                    Icons.remove_circle_outline,
+                    color: Colors.red,
+                  ),
+                  label: const Text(
+                    "remove ",
+                    selectionColor: Colors.red,
+                  ),
+                  onPressed: () {
+                    funRemove();
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                  },
+                ),
               ),
             ],
           ),

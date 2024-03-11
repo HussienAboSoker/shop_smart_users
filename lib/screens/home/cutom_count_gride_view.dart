@@ -10,7 +10,7 @@ class CutomcountGridView extends StatelessWidget {
     return GridView.count(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      crossAxisCount: 4,
+      crossAxisCount: 3,
       children: List.generate(AppContsants.catigory.length, (index) {
         return Cutomcatigory(
             image: AppContsants.catigory[index].image,

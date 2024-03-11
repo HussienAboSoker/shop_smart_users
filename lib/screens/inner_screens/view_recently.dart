@@ -9,7 +9,7 @@ import 'package:shop_smart_users/widget/product/custom_product.dart';
 
 class ViewRecently extends StatelessWidget {
   const ViewRecently({super.key});
-  final isemptycart = true;
+  final isemptycart =false;
   static const nameSceen = '/ViewRecently';
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ViewRecently extends StatelessWidget {
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: const Text('ViewRecently(6)'),
-        leading: Image.asset(ImagePath.shopingCart),
+     //   leading: Image.asset(ImagePath.shopingCart),
       ),
       body: isemptycart
           ? Center(

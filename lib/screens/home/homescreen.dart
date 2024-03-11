@@ -21,7 +21,7 @@ class HomeScreenPage extends StatelessWidget {
         ),
         title: const Text("Search"),
       ),
-      body: const Padding(
+      body:const  Padding(
         padding: EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
@@ -33,15 +33,14 @@ class HomeScreenPage extends StatelessWidget {
               Custombanner(),
               //latest product
 
-              CustomTitle(label: "latest product"),
+                CustomTitle(label: "latest product"),
+              
               //CutomLatestProduct
-              CutomListviewLastProduct(),
+             CutomListviewLastProduct(),
               //catigory
               CustomTitle(label: 'catigory'),
-              SizedBox(
-                height: 10,
-              ),
-              CutomcountGridView(),
+             
+               CutomcountGridView(),
             ],
           ),
         ),

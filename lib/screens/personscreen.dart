@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
-import 'package:shop_smart_users/screens/inner_sceens/view_recently.dart';
-import 'package:shop_smart_users/screens/inner_sceens/wishlist.dart';
+import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
+import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
 import 'package:shop_smart_users/services/app_function.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
 
@@ -22,17 +22,17 @@ class PersonScreenPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const ListTile(
-                leading: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    "assets/images/sahs.jpeg,",
-                  ),
-                  maxRadius: 30,
-                  minRadius: 10,
-                ),
-                title: Text("Hussien mostafa"),
-                subtitle: Text("Flutter devoloper"),
-              ),
+              // const ListTile(
+              //   leading: CircleAvatar(
+              //     backgroundImage: AssetImage(
+              //       "assets/images/sahs.jpeg,",
+              //     ),
+              //     maxRadius: 30,
+              //     minRadius: 10,
+              //   ),
+              //   title: Text("Hussien mostafa"),
+              //   subtitle: Text("Flutter devoloper"),
+              // ),
               //image ,2 text(column), icon
               // Padding(
               //   padding: const EdgeInsets.all(8.0),
@@ -86,7 +86,7 @@ class PersonScreenPage extends StatelessWidget {
               //general
               CustomListTitle(
                 function: () {},
-                imagePath: ImagePath.order,
+                imagePath: ImagePath.address,
                 title: 'All product',
               ),
               //WishList
@@ -102,7 +102,7 @@ class PersonScreenPage extends StatelessWidget {
                 function: () async {
                   await Navigator.pushNamed(context, ViewRecently.nameSceen);
                 },
-                imagePath: ImagePath.recent,
+                imagePath: ImagePath.address,
                 title: 'viewed recentaly',
               ),
               CustomListTitle(
@@ -127,7 +127,7 @@ class PersonScreenPage extends StatelessWidget {
               ),
               CustomListTitle(
                 function: () {},
-                imagePath: ImagePath.recent,
+                imagePath: ImagePath.address,
                 title: 'viewed recentaly',
               ),
               //address

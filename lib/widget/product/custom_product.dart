@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/screens/inner_sceens/product_details.dart';
+import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 

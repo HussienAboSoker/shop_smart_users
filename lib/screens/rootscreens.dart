@@ -6,7 +6,7 @@ import 'package:shop_smart_users/screens/cart/cart_sceen.dart';
 
 class RootScreens extends StatefulWidget {
   const RootScreens({super.key});
-
+  static const namescreen='/rootscreens.dart';
   @override
   // ignore: library_private_types_in_public_api
   _RootScreensState createState() => _RootScreensState();

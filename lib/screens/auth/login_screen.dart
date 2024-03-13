@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
 import 'package:shop_smart_users/screens/auth/sin_up_screen.dart';
+import 'package:shop_smart_users/screens/rootscreens.dart';
 import 'package:shop_smart_users/services/validation.dart';
 import 'package:shop_smart_users/widget/custom_textformfiled.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
@@ -8,7 +10,7 @@ import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static const String nameSceen = '/login_screen.dart';
+  static const String nameSrceen = '/login_screen.dart';
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -140,7 +142,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     Align(
                       alignment: Alignment.topRight,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(
+                              context, ForgotPassowrd.nameSrceen);
+                        },
                         child: const Text("Forget password ?"),
                       ),
                     ),
@@ -193,7 +198,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           Flexible(
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(
+                                    context, RootScreens.namescreen);
+                              },
                               child: const Text(
                                 "GEST ?",
                                 overflow: TextOverflow.ellipsis,
@@ -225,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               child: TextButton(
                                 onPressed: () {
                                   Navigator.pushNamed(
-                                      context, SignUpScreen.nameSceen);
+                                      context, SignUpScreen.nameSrceen);
                                 },
                                 child: const Text(
                                   "Sing up ?",

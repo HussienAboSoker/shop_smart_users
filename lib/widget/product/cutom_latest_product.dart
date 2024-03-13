@@ -13,7 +13,7 @@ class CutomLatestProduct extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, ProductDetails.nameSceen);
+        Navigator.pushNamed(context, ProductDetails.nameSrceen);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

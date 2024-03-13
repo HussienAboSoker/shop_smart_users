@@ -3,12 +3,13 @@ import 'package:provider/provider.dart';
 
 import 'package:shop_smart_users/constants/appthem.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
 import 'package:shop_smart_users/screens/auth/sin_up_screen.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
 import 'package:shop_smart_users/screens/auth/login_screen.dart';
-
+import 'package:shop_smart_users/screens/rootscreens.dart';
 
 void main() {
   runApp(
@@ -35,13 +36,15 @@ class MyApp extends StatelessWidget {
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
           home: const LoginScreen(),
           routes: {
-            SignUpScreen.nameSceen: (context) => const SignUpScreen(),
-            LoginScreen.nameSceen: (context) => const LoginScreen(),
+            RootScreens.namescreen: (context) => const RootScreens(),
+            SignUpScreen.nameSrceen: (context) => const SignUpScreen(),
+            LoginScreen.nameSrceen: (context) => const LoginScreen(),
+            ForgotPassowrd.nameSrceen: (context) => const ForgotPassowrd(),
 
             // '/ProductDetails':(context) =>const ProductDetails(),
-            ProductDetails.nameSceen: (context) => const ProductDetails(),
-            ViewRecently.nameSceen: (context) => const ViewRecently(),
-            WishList.nameSceen: (context) => const WishList(),
+            ProductDetails.nameSrceen: (context) => const ProductDetails(),
+            ViewRecently.nameSrceen: (context) => const ViewRecently(),
+            WishList.nameSrceen: (context) => const WishList(),
           },
         );
       }),

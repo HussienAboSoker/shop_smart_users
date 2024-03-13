@@ -10,7 +10,7 @@ import 'package:shop_smart_users/widget/product/custom_product.dart';
 class WishList extends StatelessWidget {
   const WishList({super.key});
   final isemptycart = false;
-  static const nameSceen = '/WishList';
+  static const nameSrceen = '/WishList';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

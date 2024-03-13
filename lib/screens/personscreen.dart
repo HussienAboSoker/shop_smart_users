@@ -92,7 +92,7 @@ class PersonScreenPage extends StatelessWidget {
               //WishList
               CustomListTitle(
                 function: () {
-                  Navigator.pushNamed(context, WishList.nameSceen);
+                  Navigator.pushNamed(context, WishList.nameSrceen);
                 },
                 imagePath: ImagePath.wishlist,
                 title: 'wishlist',
@@ -100,7 +100,7 @@ class PersonScreenPage extends StatelessWidget {
               //viewed recentaly
               CustomListTitle(
                 function: () async {
-                  await Navigator.pushNamed(context, ViewRecently.nameSceen);
+                  await Navigator.pushNamed(context, ViewRecently.nameSrceen);
                 },
                 imagePath: ImagePath.address,
                 title: 'viewed recentaly',

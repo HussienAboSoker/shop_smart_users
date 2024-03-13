@@ -6,7 +6,7 @@ import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class ProductDetails extends StatefulWidget {
   const ProductDetails({super.key});
-  static const nameSceen = "/ProductDetails";
+  static const nameSrceen = "/ProductDetails";
   @override
   State<ProductDetails> createState() => _ProductDetailsState();
 }

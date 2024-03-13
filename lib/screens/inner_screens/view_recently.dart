@@ -10,7 +10,7 @@ import 'package:shop_smart_users/widget/product/custom_product.dart';
 class ViewRecently extends StatelessWidget {
   const ViewRecently({super.key});
   final isemptycart =false;
-  static const nameSceen = '/ViewRecently';
+  static const nameSrceen = '/ViewRecently';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

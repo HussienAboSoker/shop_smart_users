@@ -21,10 +21,10 @@ class CustomsubTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       label,
-      maxLines: 2,
-      style: const TextStyle(
-        //  color: color,
-        fontSize: 14,
+      maxLines: maxlines,
+      style:  TextStyle(
+          color: color,
+        fontSize: fontSize,
         fontWeight: FontWeight.normal,
 
         // decoration: decoration,

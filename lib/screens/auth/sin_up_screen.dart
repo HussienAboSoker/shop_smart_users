@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:shop_smart_users/screens/auth/pick_image.dart';
+import 'package:shop_smart_users/services/app_function.dart';
 import 'package:shop_smart_users/services/validation.dart';
 import 'package:shop_smart_users/widget/custom_textformfiled.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
@@ -8,7 +10,7 @@ import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
-  static const String nameSceen = '/sin_out_screen.dart';
+  static const String nameSrceen = '/sin_out_screen.dart';
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
@@ -17,6 +19,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool obscureText = true;
 
   final _formKey = GlobalKey<FormState>();
+  XFile? _pickedimageFill; //
+
   late final TextEditingController _emailController,
       _passwordController,
       _reppasswordController,
@@ -65,6 +69,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
     });
   }
 
+  Future<void> _pickedimagefun() async {
+    final ImagePicker imagePicker = ImagePicker();
+    await AppFunction.pickImageDialog(
+        context: context,
+        funcamera: () async {
+          _pickedimageFill =
+              await imagePicker.pickImage(source: ImageSource.camera);
+          setState(() {});
+        },
+        funGalary: () async{
+          _pickedimageFill =
+              await imagePicker.pickImage(source: ImageSource.camera);
+          setState(() {});
+        },
+        funRemove: () async {
+          _pickedimageFill == null;
+        });
+  }
+
+  
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -91,6 +116,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 20,
                   ),
+                  //welcom
                   const CustomTitle(
                     label: 'Welcom ',
                     fontSize: 25,
@@ -103,7 +129,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(
                     height: 50,
                   ),
-                  const Center(child: PickImage()),
+                  //pickimage
+                  Center(
+                    child: PickImageDialog(
+                      pickedimage: _pickedimageFill,
+                      function: () async {
+                        await _pickedimagefun();
+                      },
+                    ),
+                  ),
                   const SizedBox(
                     height: 50,
                   ),

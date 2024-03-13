@@ -68,67 +68,73 @@ class AppFunction {
     );
   }
 
-  static Future<void> pickImageDialog(
-    BuildContext context,{
+  static Future<void> pickImageDialog({
+    required BuildContext context,
     //  required String subtitle,
     required Function funcamera,
     required Function funGalary,
     required Function funRemove,
-    }
-    // bool iserror = false,
-  ) async {
+  }
+      // bool iserror = false,
+      ) async {
     await showDialog(
       context: context,
-      builder: (context) {
+      builder: (BuildContext context) {
         return AlertDialog(
           title: const Center(
             child: CustomTitle(label: 'choose option'),
           ),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton.icon(
-                  icon: const Icon(Icons.camera_alt_rounded),
-                  label: const Text("  camira "),
-                  onPressed: () {
-                    funcamera();
-                  },
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton.icon(
-                  icon: const Icon(Icons.image),
-                  label: const Text(" callary "),
-                  onPressed: () {
-                    funGalary();
-                  },
-                ),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                child: ElevatedButton.icon(
-                  icon: const Icon(
-                    Icons.remove_circle_outline,
-                    color: Colors.red,
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.camera_alt_rounded),
+                    label: const Text("  camira "),
+                    onPressed: () {
+                      funcamera();
+                      if (Navigator.canPop(context)) {
+                        Navigator.pop(context);
+                      }
+                    },
                   ),
-                  label: const Text(
-                    "remove ",
-                    selectionColor: Colors.red,
-                  ),
-                  onPressed: () {
-                    funRemove();
-                    if (Navigator.canPop(context)) {
-                      Navigator.pop(context);
-                    }
-                  },
                 ),
-              ),
-            ],
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.image),
+                    label: const Text(" callary "),
+                    onPressed: () {
+                      funGalary();
+                      if (Navigator.canPop(context)) {
+                        Navigator.pop(context);
+                      }
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: ElevatedButton.icon(
+                    icon: const Icon(
+                      Icons.remove_circle_outline,
+                      color: Colors.red,
+                    ),
+                    label: const Text(
+                      "remove ",
+                      selectionColor: Colors.red,
+                    ),
+                    onPressed: () {
+                      funRemove();
+                      if (Navigator.canPop(context)) {
+                        Navigator.pop(context);
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

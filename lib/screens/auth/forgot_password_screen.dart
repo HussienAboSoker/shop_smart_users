@@ -34,14 +34,13 @@ class _ForgotPassowrdState extends State<ForgotPassowrd> {
     }
     super.dispose();
   }
-   Future<void> _forgotPassowrd() async {
+
+  Future<void> _forgotPassowrd() async {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _formKey.currentState!.validate();
       FocusScope.of(context).unfocus();
-     
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +58,11 @@ class _ForgotPassowrdState extends State<ForgotPassowrd> {
               //mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child:
-                  FancyShimmerImage(
-                    boxFit: BoxFit.fill,
-                    
-                    imageUrl:ImagePath.forgotPassword ,)
-                //   Image.asset(ImagePath.forgotPassword),
+                FancyShimmerImage(
+                  // boxFit: BoxFit.fill,
+                  width: double.infinity,
+                  imageUrl: //'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
+                      ImagePath.forgotPassword,
                 ),
                 const SizedBox(
                   height: 20,
@@ -97,8 +94,8 @@ class _ForgotPassowrdState extends State<ForgotPassowrd> {
                   width: MediaQuery.of(context).size.width,
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.send),
-                    onPressed: () async{
-                  await   _forgotPassowrd();
+                    onPressed: () async {
+                      await _forgotPassowrd();
                     },
                     label: const Text("Requset link "),
                   ),

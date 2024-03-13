@@ -14,26 +14,21 @@ class Cutomcatigory extends StatelessWidget {
       onTap: () {
         log("catigory");
       },
-      child: Flexible(
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                image,
-                height: size.height * 0.1,
-                width: size.width * 0.1,
-              ),
-            ),
-            CustomsubTitle(
-              label: name,
-              
-              maxlines: 1,
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            )
-          ],
-        ),
+      child: Column(
+        children: [
+          Image.asset(
+            image,
+            height: size.height * 0.1,
+            width: size.width * 0.1,
+          ),
+          CustomsubTitle(
+            label: name,
+            
+            maxlines: 1,
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+          )
+        ],
       ),
     );
   }

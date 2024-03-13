@@ -12,36 +12,38 @@ class HomeScreenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Image.asset(ImagePath.shopingCart),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Image.asset(ImagePath.shopingCart),
+          ),
+          title: const Text("Shop smart"),
         ),
-        title: const Text("Search"),
-      ),
-      body:const  Padding(
-        padding: EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            //  mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              //swiper
-
-              Custombanner(),
-              //latest product
-
+        body: const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            child: Column(
+              //  mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                //swiper
+      
+                Custombanner(),
+                //latest product
+      
                 CustomTitle(label: "latest product"),
-              
-              //CutomLatestProduct
-             CutomListviewLastProduct(),
-              //catigory
-              CustomTitle(label: 'catigory'),
-             
-               CutomcountGridView(),
-            ],
+      
+                //CutomLatestProduct
+                   CutomListviewLastProduct(),
+                //catigory
+                CustomTitle(label: 'catigory'),
+      
+                 CutomcountGridView(),
+              ],
+            ),
           ),
         ),
       ),

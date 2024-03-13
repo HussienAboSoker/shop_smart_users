@@ -7,13 +7,13 @@ class AppContsants {
     ImagePath.banner2,
   ];
   static List<Catigorymodel> catigory = [
-    Catigorymodel(name: "phone", image: ImagePath.mobiles),
-    Catigorymodel(name: "book", image: ImagePath.book),
-    Catigorymodel(name: "cosmetics", image: ImagePath.cosmetics),
-    Catigorymodel(name: "electronics", image: ImagePath.electronics),
-    Catigorymodel(name: "fashion", image: ImagePath.fashion),
-    Catigorymodel(name: "pc", image: ImagePath.pc),
-    Catigorymodel(name: "shapes", image: ImagePath.shapes),
-    Catigorymodel(name: "whatch", image: ImagePath.watch),
+    Catigorymodel(id: ImagePath.mobiles,name: "phone", image: ImagePath.mobiles,),
+    Catigorymodel(id: ImagePath.book,name: "book", image: ImagePath.book),
+    Catigorymodel(id: ImagePath.cosmetics,name: "cosmetics", image: ImagePath.cosmetics),
+    Catigorymodel(id: ImagePath.electronics,name: "electronics", image: ImagePath.electronics),
+    Catigorymodel(id: ImagePath.fashion,name: "fashion", image: ImagePath.fashion),
+    Catigorymodel(id: ImagePath.pc,name: "pc", image: ImagePath.pc),
+    Catigorymodel(id: ImagePath.shapes,name: "shapes", image: ImagePath.shapes),
+    Catigorymodel(id: ImagePath.watch,name: "whatch", image: ImagePath.watch),
   ];
 }

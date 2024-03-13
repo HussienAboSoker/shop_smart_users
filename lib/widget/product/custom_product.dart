@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
@@ -16,42 +17,60 @@ class CustomProduct extends StatefulWidget {
 class _CustomProductState extends State<CustomProduct> {
   @override
   Widget build(BuildContext context) {
+    
+    Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, ProductDetails.nameSrceen);
       },
       child: Column(
         children: [
-          const CutomFancyImage(),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Flexible(
-                  // flex: 5,
-                  child: CustomTitle(
-                      // color: Colors.green,
-                      label:
-                          'fsfkdfskfdklfskd dfdsfdsf dfs fsdfs fsd sfd fsfs  fsdfsdf dfs sfdfs f fs fsfdsfs sf')),
-              CustomHeart(),
-            ],
-          ),
+          
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: FancyShimmerImage(
+                boxFit: BoxFit.fill,
+                imageUrl:
+                
+                    'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                height: size.height * 0.22,
+                width: double.infinity,
+              ),
+            ),
+         Row(
+           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             Flexible(
+              flex: 5,
+               child: CustomTitle(
+                    color: Colors.green,
+                   label:
+                       'fsfkdf sf'*10),
+             ),
+             Flexible(child: CustomHeart()),
+           ],
+         ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const CustomsubTitle(
-                label: '123\$',
-                color: Colors.green,
+              const Flexible(
+                child:  CustomsubTitle(
+                  label: '123\$',
+                  color: Colors.green,
+                ),
               ),
-              Material(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.blue,
-                child: InkWell(
-                  onTap: () {},
-                  splashColor: Colors.red,
+              Flexible(
+                child: Material(
                   borderRadius: BorderRadius.circular(8),
-                  child: const Padding(
-                    padding: EdgeInsets.all(4.0),
-                    child: Icon(Icons.add_shopping_cart_outlined),
+                  color: Colors.blue,
+                  child: InkWell(
+                    onTap: () {},
+                    splashColor: Colors.red,
+                    borderRadius: BorderRadius.circular(8),
+                    child: const Padding(
+                      padding: EdgeInsets.all(4.0),
+                      child: Icon(Icons.add_shopping_cart_outlined),
+                    ),
                   ),
                 ),
               ),

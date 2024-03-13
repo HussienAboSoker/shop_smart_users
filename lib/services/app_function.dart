@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
+import 'package:shop_smart_users/screens/auth/login_screen.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -7,7 +8,7 @@ class AppFunction {
   static Future<void> showErrorOrWarning(
     BuildContext context, {
     required String subtitle,
-    required Function function,
+   // required Function functionOk,
     bool iserror = false,
   }) async {
     await showDialog(
@@ -50,7 +51,9 @@ class AppFunction {
                     width: 10,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed:(){
+                      Navigator.pushNamed(context, LoginScreen.nameSrceen);
+                    },
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.red),
                     ),
@@ -90,7 +93,7 @@ class AppFunction {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: ElevatedButton.icon(
+                  child: TextButton.icon(
                     icon: const Icon(Icons.camera_alt_rounded),
                     label: const Text("  camira "),
                     onPressed: () {
@@ -103,7 +106,7 @@ class AppFunction {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: ElevatedButton.icon(
+                  child: TextButton.icon(
                     icon: const Icon(Icons.image),
                     label: const Text(" callary "),
                     onPressed: () {
@@ -116,7 +119,7 @@ class AppFunction {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: ElevatedButton.icon(
+                  child: TextButton.icon(
                     icon: const Icon(
                       Icons.remove_circle_outline,
                       color: Colors.red,

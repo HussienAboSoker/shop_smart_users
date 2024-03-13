@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/screens/auth/login_screen.dart';
 import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
 import 'package:shop_smart_users/services/app_function.dart';
@@ -141,16 +142,18 @@ class PersonScreenPage extends StatelessWidget {
               ),
               Center(
                 child: ElevatedButton.icon(
-                    style: ButtonStyle(
-                     backgroundColor: MaterialStateProperty.all(const Color.fromARGB(197, 238, 34, 20)),
-                     foregroundColor:    MaterialStateProperty.all(Colors.white),
-                    ),
-                    onPressed: ()async {
-                  await  AppFunction.showErrorOrWarning(context,
-                  function: (){},subtitle: "are you sure you want to signout");
-                    },
-                    icon: const Icon(Icons.login),
-                    label: const Text("Login"),),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        const Color.fromARGB(197, 238, 34, 20)),
+                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                  ),
+                  onPressed: () async {
+                    await AppFunction.showErrorOrWarning(context,
+                      subtitle: "are you sure you want to signout");
+                  },
+                  icon: const Icon(Icons.login),
+                  label: const Text("Login"),
+                ),
               ),
               const SizedBox(
                 height: 20,

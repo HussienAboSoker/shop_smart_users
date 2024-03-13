@@ -1,3 +1,4 @@
+import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
@@ -18,46 +19,67 @@ class CutomLatestProduct extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SizedBox(
-          width: size.width * 0.30,
-         height: size.height *2,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          width: size.width*0.50,
+          height: size.height*70,
+          
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: const CutomFancyImage(),
-              ),
-            
-              const Flexible(
-                child: CustomTitle(
-                  label:
-                      "ffhfjgfdjg djgdfjgdkfj dfjgfdjk jdfgjdf djkgjdf gjkdgjfdgjdfgjkdfgjfgdfkgjdfkjdfjgfdjgfdkgjfdgkdfgjdkgjdfkgjfdgjfdkjgfdkfdjgfkjdg jkdfgjdfjkgdfkgjfdkjgfjdjkf",
-                  maxlines: 2,
-                ),
-              ),
-              const FittedBox(
-                child: Text(
-                  "1245\$",
-                  style: TextStyle(
-                    color: Colors.green,
+              Flexible(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: FancyShimmerImage(
+                    imageUrl:
+                        'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                    height: size.height * 0.2,
+                    width: size.width * 0.2,
                   ),
                 ),
               ),
-              Flexible(
-                child: Row(
-                //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.done,
-                        color: Colors.blue,
-                      ),
+           SizedBox(width: 10,),
+            Flexible(
+              child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                        
+               Text("data"*10,overflow:TextOverflow.ellipsis ,maxLines: 3,style: TextStyle(fontSize: 15),),
+                   SizedBox(height: 10,)  , 
+                 const FittedBox(
+                  child: Text(
+                    "price:  1245 \$",
+                    style: TextStyle(
+                      color: Colors.green,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
                     ),
-                   const CustomHeart(),
-                  ],
+                  ),
                 ),
+                   FittedBox(
+                     child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                     children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.done,
+                          color: Colors.blue,
+                        ),
+                      ),
+                      
+                     const CustomHeart(),
+                                     ],
+                                   ),
+                   ),
+                
+                   
+                   
+                ],
               ),
+            ),
+            
+            
+            
+                 
             ],
           ),
         ),

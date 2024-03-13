@@ -39,8 +39,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 //this handled by flutter team
                 _textEditingController.clear();
               },
-              icon: const Icon(Icons.delete),),
-          prefixIcon: const Icon(Icons.search),
+              icon: const Icon(Icons.delete,color: Color.fromARGB(205, 209, 44, 33),),),
+          prefixIcon: const Icon(Icons.search,),
           hintText: 'Search...',
           //   border: InputBorder.none,
        

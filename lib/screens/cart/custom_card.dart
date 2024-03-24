@@ -23,7 +23,7 @@ class CustomCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: FancyShimmerImage(
                     imageUrl:
-                        'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                        'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
                     height: size.height * 0.2,
                     width: size.width * 0.2,
                   ),
@@ -37,11 +37,12 @@ class CustomCard extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(
+                          
                           width: size.width * 0.6,
                           child: const CustomTitle(
                               maxlines: 2,
                               label:
-                                  'dfsfsg gjg gjdg djg hgj dgjdgj dgj dgdj djgd djg jdgj dgjgf l hflh flhf lfhlf hlhlflhlflhflhlf flhlhfhlf lglflhflhflhflhfl lflhfllf'),
+                                  '"Samsung Galaxy S23 Ultra 5G 256GB 8GB RAM W/SPEN"'),
                         ),
                         IconButton(
                           onPressed: () {},

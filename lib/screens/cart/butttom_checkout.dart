@@ -16,7 +16,7 @@ class ButtomCheckout extends StatelessWidget {
             ),
             color: Theme.of(context).scaffoldBackgroundColor),
         padding: EdgeInsets.symmetric(
-            horizontal: size.width * 0.007, vertical: size.height * 0.007),
+            horizontal: size.width * 0.03, vertical: size.width * 0.03),
         height: size.height * 0.1,
         width: size.width * 1,
         child: Row(

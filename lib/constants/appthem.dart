@@ -21,7 +21,7 @@ class AppThemes {
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         selectedItemColor:
-            isdarktheme ? AppColors.darkprimary : AppColors.darkprimary,
+            isdarktheme ? AppColors.darkprimary : Colors.blue,
         unselectedItemColor: isdarktheme ? Colors.white : Colors.black,
       ),
       // iconTheme: IconThemeData(

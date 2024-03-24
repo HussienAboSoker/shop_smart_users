@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
-import 'package:shop_smart_users/screens/auth/login_screen.dart';
+
 import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
+import 'package:shop_smart_users/screens/person/custom_person.dart';
 import 'package:shop_smart_users/services/app_function.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
+
 
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -15,6 +17,7 @@ class PersonScreenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+   
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: Padding(
@@ -23,60 +26,9 @@ class PersonScreenPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // const ListTile(
-              //   leading: CircleAvatar(
-              //     backgroundImage: AssetImage(
-              //       "assets/images/sahs.jpeg,",
-              //     ),
-              //     maxRadius: 30,
-              //     minRadius: 10,
-              //   ),
-              //   title: Text("Hussien mostafa"),
-              //   subtitle: Text("Flutter devoloper"),
-              // ),
-              //image ,2 text(column), icon
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-              //   child: Visibility(
-              //     visible: true,
-              //     child: Row(
-              //       children: [
-              //
-              //         // Container(
-              //         //   height: 60,
-              //         //   width: 60,
-              //         //   decoration: BoxDecoration(
-              //         //     shape: BoxShape.circle,
-              //         //    // color: Colors.amber, //Theme.of(context).cardColor,
-              //         //     //borderRadius: BorderRadius.circular(12),
-              //         //     border: Border.all(
-              //         //       color: Colors.black,
-              //         //       //Theme.of(context).colorScheme.background ,
-              //         //       // style: ,
-              //         //       width: 3,
-              //         //     ),
-              //         //     // image:  DecorationImage(
-              //         //     //   image:
-
-              //         //     ),
-              //         //   ),
-              //         // ),
-              //         const SizedBox(
-              //           width: 7,
-              //         ),
-              //         const Column(
-              //           crossAxisAlignment: CrossAxisAlignment.start,
-              //           children: [
-              //             CustomTitle(
-              //               label: 'Hussien mostafa',
-              //             ),
-              //             CustomsubTitle(label: 'Flutter developer'),
-              //           ],
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+          
+          const  SizedBox(height: 50,),
+            const CustomPerson(),
               const Divider(
                 thickness: 1,
               ),
@@ -151,8 +103,8 @@ class PersonScreenPage extends StatelessWidget {
                     await AppFunction.showErrorOrWarning(context,
                       subtitle: "are you sure you want to signout");
                   },
-                  icon: const Icon(Icons.login),
-                  label: const Text("Login"),
+                  icon: const Icon(Icons.logout),
+                  label: const Text("logout"),
                 ),
               ),
               const SizedBox(

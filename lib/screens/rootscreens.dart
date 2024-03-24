@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/home/homescreen.dart';
-import 'package:shop_smart_users/screens/personscreen.dart';
+import 'package:shop_smart_users/screens/person/personscreen.dart';
 import 'package:shop_smart_users/screens/searchscreen.dart';
 import 'package:shop_smart_users/screens/cart/cart_screen.dart';
 
@@ -60,7 +60,8 @@ class _RootScreensState extends State<RootScreens> {
         },
         items: const [
           BottomNavigationBarItem(
-            // backgroundColor: Color.fromARGB(31, 148, 51, 51),
+            
+           // backgroundColor: Color.fromARGB(31, 148, 51, 51),
             icon: Icon(
               Icons.home,
               //  color: Colors.amber,
@@ -68,7 +69,7 @@ class _RootScreensState extends State<RootScreens> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Badge(label: Text("9"), child: Icon(Icons.card_travel_sharp)),
+            icon: Badge(label: Text("9"), child: Icon(Icons.shopping_cart_outlined)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(

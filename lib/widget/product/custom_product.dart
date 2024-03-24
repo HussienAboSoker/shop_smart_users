@@ -32,7 +32,7 @@ class _CustomProductState extends State<CustomProduct> {
                 boxFit: BoxFit.fill,
                 imageUrl:
                 
-                    'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                    'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
                 height: size.height * 0.22,
                 width: double.infinity,
               ),

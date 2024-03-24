@@ -33,13 +33,15 @@ class HomeScreenPage extends StatelessWidget {
       
                 Custombanner(),
                 //latest product
-      
+                 SizedBox(height: 20,),
                 CustomTitle(label: "latest product"),
-      
+                       SizedBox(height: 20,),
                 //CutomLatestProduct
                    CutomListviewLastProduct(),
+                    SizedBox(height: 20,),
                 //catigory
                 CustomTitle(label: 'catigory'),
+                    SizedBox(height: 20,),
       
                  CutomcountGridView(),
               ],

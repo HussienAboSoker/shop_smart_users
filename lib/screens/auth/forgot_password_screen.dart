@@ -1,6 +1,6 @@
-import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
+
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/constants/appconstant.dart';
+
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/services/validation.dart';
 import 'package:shop_smart_users/widget/custom_textformfiled.dart';
@@ -58,12 +58,9 @@ class _ForgotPassowrdState extends State<ForgotPassowrd> {
               //mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                FancyShimmerImage(
-                  // boxFit: BoxFit.fill,
-                  width: double.infinity,
-                  imageUrl: //'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'
-                      ImagePath.forgotPassword,
-                ),
+                Image.asset(ImagePath.forgotPassword,
+                width: double.infinity,),
+              
                 const SizedBox(
                   height: 20,
                 ),

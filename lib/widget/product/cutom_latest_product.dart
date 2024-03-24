@@ -30,23 +30,23 @@ class CutomLatestProduct extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8),
                   child: FancyShimmerImage(
                     imageUrl:
-                        'https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+                        'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
                     height: size.height * 0.2,
                     width: size.width * 0.2,
                   ),
                 ),
               ),
-           SizedBox(width: 10,),
+        const   SizedBox(width: 10,),
             Flexible(
               child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                         
-               Text("data"*10,overflow:TextOverflow.ellipsis ,maxLines: 3,style: TextStyle(fontSize: 15),),
-                   SizedBox(height: 10,)  , 
+               const Text("Samsung Galaxy S23 Ultra 5G 256GB 8GB RAM W/SPEN",overflow:TextOverflow.ellipsis ,maxLines: 3,style: TextStyle(fontSize: 15),),
+                const   SizedBox(height: 10,)  , 
                  const FittedBox(
                   child: Text(
-                    "price:  1245 \$",
+                    "price: 1,599.00 \$",
                     style: TextStyle(
                       color: Colors.green,
                       fontSize: 15,

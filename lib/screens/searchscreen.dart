@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
+import 'package:shop_smart_users/providers/themeprovider.dart';
 
 import 'package:shop_smart_users/widget/product/custom_product.dart';
 import 'package:shop_smart_users/widget/cutom_text_filed.dart';
@@ -12,6 +15,7 @@ class SearchScreenPage extends StatelessWidget {
   final isempty = false;
   @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<ProductProvider>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -39,7 +43,7 @@ class SearchScreenPage extends StatelessWidget {
                           child: CustomProduct(),
                         );
                       },
-                      itemCount: 90,
+                      itemCount: productProvider.getproducts.length,
                       crossAxisCount: 2,
                     ),
                   ),

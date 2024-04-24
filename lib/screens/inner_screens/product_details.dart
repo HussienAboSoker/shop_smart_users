@@ -1,8 +1,6 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
-import 'package:shop_smart_users/widget/cutom_fanimage.dart';
-import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -86,7 +84,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //tow text

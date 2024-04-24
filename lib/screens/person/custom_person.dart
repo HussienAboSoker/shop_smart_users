@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 

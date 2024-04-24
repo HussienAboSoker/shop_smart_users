@@ -11,7 +11,6 @@ import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
 import 'package:shop_smart_users/screens/auth/login_screen.dart';
 import 'package:shop_smart_users/screens/rootscreens.dart';
-import 'package:shop_smart_users/screens/searchscreen.dart';
 
 void main() {
   runApp(

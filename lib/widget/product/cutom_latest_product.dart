@@ -2,9 +2,7 @@ import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
-import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 
-import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class CutomLatestProduct extends StatelessWidget {
   const CutomLatestProduct({super.key});

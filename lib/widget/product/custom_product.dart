@@ -29,12 +29,12 @@ class CustomProduct extends StatelessWidget {
                 boxFit: BoxFit.fill,
                 imageUrl:
                 
-                    'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
+                    productProvider.productImage,
                 height: size.height * 0.22,
                 width: double.infinity,
               ),
             ),
-         const Row(
+          Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: [
              Flexible(
@@ -42,17 +42,17 @@ class CustomProduct extends StatelessWidget {
                child: CustomTitle(
                     color: Colors.green,
                    label:
-                     "  productProvider.productTitle"),
+                       productProvider.productTitle,),
              ),
-              Flexible(child: CustomHeart()),
+             const Flexible(child: CustomHeart()),
            ],
          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Flexible(
+               Flexible(
                 child:  CustomsubTitle(
-                  label: '123\$',
+                  label: productProvider.productPrice,
                   color: Colors.green,
                 ),
               ),

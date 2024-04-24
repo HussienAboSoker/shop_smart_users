@@ -1,10 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
-import 'package:shop_smart_users/providers/themeprovider.dart';
 
 import 'package:shop_smart_users/widget/product/custom_product.dart';
 import 'package:shop_smart_users/widget/cutom_text_filed.dart';

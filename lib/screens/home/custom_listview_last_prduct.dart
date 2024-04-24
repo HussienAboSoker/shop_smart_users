@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_smart_users/screens/cart/custom_card.dart';
 import 'package:shop_smart_users/widget/product/cutom_latest_product.dart';
 
 class CutomListviewLastProduct extends StatelessWidget {

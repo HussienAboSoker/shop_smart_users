@@ -1,7 +1,7 @@
 
-import 'package:uuid/uuid.dart';
+import 'package:flutter/material.dart';
 
-class ProductModel {
+class ProductModel with ChangeNotifier {
   final String productId,
       productTitle,
       productDescription,

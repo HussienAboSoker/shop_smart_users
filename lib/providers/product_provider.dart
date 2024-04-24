@@ -3,6 +3,8 @@ import 'package:shop_smart_users/models/product_model.dart';
 import 'package:uuid/uuid.dart';
 
 class ProductProvider extends ChangeNotifier {
+  ProductModel? productModel ;
+
   
   //create a getter for products
   List<ProductModel> get getproducts {

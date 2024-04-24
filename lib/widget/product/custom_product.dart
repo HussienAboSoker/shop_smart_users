@@ -1,22 +1,19 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_smart_users/models/product_model.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
-import 'package:shop_smart_users/widget/cutom_fanimage.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
-class CustomProduct extends StatefulWidget {
+class CustomProduct extends StatelessWidget {
   const CustomProduct({super.key});
 
   @override
-  State<CustomProduct> createState() => _CustomProductState();
-}
-
-class _CustomProductState extends State<CustomProduct> {
-  @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<ProductModel>(context);
     
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
@@ -37,7 +34,7 @@ class _CustomProductState extends State<CustomProduct> {
                 width: double.infinity,
               ),
             ),
-         Row(
+         const Row(
            mainAxisAlignment: MainAxisAlignment.spaceBetween,
            children: [
              Flexible(
@@ -45,9 +42,9 @@ class _CustomProductState extends State<CustomProduct> {
                child: CustomTitle(
                     color: Colors.green,
                    label:
-                       'fsfkdf sf'*10),
+                     "  productProvider.productTitle"),
              ),
-             Flexible(child: CustomHeart()),
+              Flexible(child: CustomHeart()),
            ],
          ),
           Row(

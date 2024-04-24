@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
         }),
           ChangeNotifierProvider(create: (_) {
           return ProductProvider();
-        })
+        }),
+         
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
         return MaterialApp(

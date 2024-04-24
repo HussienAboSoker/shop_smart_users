@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
@@ -38,9 +40,12 @@ class SearchScreenPage extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: DynamicHeightGridView(
                       builder: (context, index) {
-                        return const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CustomProduct(),
+                        return  Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          //for listen a productmodel
+                          child: ChangeNotifierProvider.value(
+                            value: productProvider.getproducts[index],
+                            child: const CustomProduct()),
                         );
                       },
                       itemCount: productProvider.getproducts.length,

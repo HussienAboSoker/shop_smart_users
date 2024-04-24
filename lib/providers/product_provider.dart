@@ -4,10 +4,13 @@ import 'package:uuid/uuid.dart';
 
 class ProductProvider extends ChangeNotifier {
   
-
+  //create a getter for products
+  List<ProductModel> get getproducts {
+    return products;
+  } 
   //list of product
-  
-  static List<ProductModel> products = [
+
+   List<ProductModel> products = [
     ProductModel(
       //generate random id
         productId:const Uuid().v4(),

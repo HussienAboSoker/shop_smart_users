@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
@@ -5,19 +7,39 @@ import 'package:shop_smart_users/models/product_model.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 
 import 'package:shop_smart_users/widget/product/custom_product.dart';
-import 'package:shop_smart_users/widget/cutom_text_filed.dart';
 
 import 'package:shop_smart_users/widget/empty_screen.dart';
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
-class SearchScreenPage extends StatelessWidget {
+class SearchScreenPage extends StatefulWidget {
   static const String nameSrceen = '/searchscreen.dart';
 
   const SearchScreenPage({super.key});
-  final isempty = false;
+
+  @override
+  State<SearchScreenPage> createState() => _SearchScreenPageState();
+}
+
+class _SearchScreenPageState extends State<SearchScreenPage> {
+  late TextEditingController _searchController;
+  @override
+  //to initalize controller
+  void initState() {
+    _searchController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  //for cleat buffer data when go to anther screen
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+ List<ProductModel> listSearchProduct = [];
   @override
   Widget build(BuildContext context) {
+   
     // Get the product data provider from the current context
     final productProvider = Provider.of<ProductProvider>(context);
     // Extract the category passed as an argument through navigation
@@ -48,7 +70,50 @@ class SearchScreenPage extends StatelessWidget {
               )
             : Column(
                 children: [
-                  const SizedBox(child: CustomTextField()),
+                  SizedBox(
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      controller: _searchController,
+                      decoration: InputDecoration(
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            //note when you Clear()you dont must put set state
+                            //this handled by flutter team
+                            _searchController.clear();
+                          },
+                          icon: const Icon(
+                            Icons.delete,
+                            color: Color.fromARGB(205, 209, 44, 33),
+                          ),
+                        ),
+                        prefixIcon: const Icon(
+                          Icons.search,
+                        ),
+                        hintText: 'Search...',
+                        //   border: InputBorder.none,
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          listSearchProduct = productProvider.searchByName(
+                              productname: _searchController.text);
+                            print(listSearchProduct);
+                            print("lenght of list ${listSearchProduct.length}");
+
+                        });
+                      },
+                      onSubmitted: (value) {
+                        setState(() {
+                          listSearchProduct = productProvider.searchByName(
+                              productname: _searchController.text);
+                        });
+                      },
+                    ),
+                  )),
+                  if (_searchController.text.isNotEmpty &&
+                      listSearchProduct.isEmpty) ...[
+                    const CustomTitle(label: "product not found"),
+                  ],
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -58,11 +123,15 @@ class SearchScreenPage extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             //for listen a productmodel
                             child: CustomProduct(
-                              productId: productlist[index].productId,
-                            ),
+                                productId: _searchController.text.isEmpty
+                                    ? productlist[index].productId
+                                    : listSearchProduct[index].productId
+                                    ),
                           );
                         },
-                        itemCount: productlist.length,
+                        itemCount: _searchController.text.isEmpty
+                            ? productlist.length
+                            : listSearchProduct.length,
                         crossAxisCount: 2,
                       ),
                     ),

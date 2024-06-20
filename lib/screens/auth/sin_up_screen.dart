@@ -78,7 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               await imagePicker.pickImage(source: ImageSource.camera);
           setState(() {});
         },
-        funGalary: () async{
+        funGalary: () async {
           _pickedimageFill =
               await imagePicker.pickImage(source: ImageSource.camera);
           setState(() {});
@@ -87,8 +87,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           _pickedimageFill == null;
         });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {

@@ -13,7 +13,7 @@ class CutomListviewLastProduct extends StatelessWidget {
         itemCount: 10,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return  const CutomLatestProduct();
+          return const CutomLatestProduct();
         },
       ),
     );

@@ -37,7 +37,6 @@ class CustomCard extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(
-                          
                           width: size.width * 0.6,
                           child: const CustomTitle(
                               maxlines: 2,

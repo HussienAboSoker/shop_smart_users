@@ -43,7 +43,7 @@ class WishList extends StatelessWidget {
                   builder: (context, index) {
                     return const Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: CustomProduct(),
+                      child: CustomProduct(productId: ""),
                     );
                   },
                   itemCount: 90,

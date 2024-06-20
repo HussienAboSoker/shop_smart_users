@@ -18,8 +18,7 @@ class PickImageDialog extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(18),
-            child:
-             pickedimage == null
+            child: pickedimage == null
                 ? Container(
                     height: size.height * 0.2,
                     width: size.width * 0.4,
@@ -45,8 +44,11 @@ class PickImageDialog extends StatelessWidget {
             color: const Color.fromARGB(181, 110, 84, 152),
             child: InkWell(
               onTap: () async {
-                await AppFunction.pickImageDialog(context: context,
-                    funGalary: () {}, funRemove: () {}, funcamera: () {});
+                await AppFunction.pickImageDialog(
+                    context: context,
+                    funGalary: () {},
+                    funRemove: () {},
+                    funcamera: () {});
               },
               splashColor: Colors.blue,
               borderRadius: BorderRadius.circular(8),

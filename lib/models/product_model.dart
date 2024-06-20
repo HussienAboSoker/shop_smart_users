@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class ProductModel with ChangeNotifier {
@@ -18,5 +17,4 @@ class ProductModel with ChangeNotifier {
       required this.productPrice,
       required this.productQuantity,
       required this.productCategory});
-
 }

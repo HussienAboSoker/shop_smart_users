@@ -9,7 +9,7 @@ import 'package:shop_smart_users/widget/product/custom_product.dart';
 
 class ViewRecently extends StatelessWidget {
   const ViewRecently({super.key});
-  final isemptycart =false;
+  final isemptycart = false;
   static const nameSrceen = '/ViewRecently';
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ class ViewRecently extends StatelessWidget {
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: const Text('ViewRecently(6)'),
-     //   leading: Image.asset(ImagePath.shopingCart),
+        //   leading: Image.asset(ImagePath.shopingCart),
       ),
       body: isemptycart
           ? Center(
@@ -43,7 +43,9 @@ class ViewRecently extends StatelessWidget {
                   builder: (context, index) {
                     return const Padding(
                       padding: EdgeInsets.all(8.0),
-                      child: CustomProduct(),
+                      child: CustomProduct(
+                        productId: "",
+                      ),
                     );
                   },
                   itemCount: 90,

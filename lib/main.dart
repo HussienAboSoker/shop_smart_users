@@ -11,6 +11,7 @@ import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
 import 'package:shop_smart_users/screens/auth/login_screen.dart';
 import 'package:shop_smart_users/screens/rootscreens.dart';
+import 'package:shop_smart_users/screens/searchscreen.dart';
 
 void main() {
   runApp(
@@ -28,10 +29,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) {
           return ThemeProvider();
         }),
-          ChangeNotifierProvider(create: (_) {
+        ChangeNotifierProvider(create: (_) {
           return ProductProvider();
         }),
-         
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
         return MaterialApp(
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppThemes.themeData(
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
-          home: const LoginScreen(),
+          home: const RootScreens(),
           routes: {
             RootScreens.namescreen: (context) => const RootScreens(),
             SignUpScreen.nameSrceen: (context) => const SignUpScreen(),
@@ -47,6 +47,8 @@ class MyApp extends StatelessWidget {
             ForgotPassowrd.nameSrceen: (context) => const ForgotPassowrd(),
 
             // '/ProductDetails':(context) =>const ProductDetails(),
+            SearchScreenPage.nameSrceen: (context) => const SearchScreenPage(),
+
             ProductDetails.nameSrceen: (context) => const ProductDetails(),
             ViewRecently.nameSrceen: (context) => const ViewRecently(),
             WishList.nameSrceen: (context) => const WishList(),
@@ -56,4 +58,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
- 

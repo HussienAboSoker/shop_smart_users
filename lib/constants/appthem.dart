@@ -6,7 +6,7 @@ class AppThemes {
       {required bool isdarktheme, required BuildContext context}) {
     return ThemeData(
       inputDecorationTheme: InputDecorationTheme(
-          enabledBorder: OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.grey, width: 2.0),
           borderRadius: BorderRadius.circular(20.0),
         ),
@@ -20,8 +20,7 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor:
-            isdarktheme ? AppColors.darkprimary : Colors.blue,
+        selectedItemColor: isdarktheme ? AppColors.darkprimary : Colors.blue,
         unselectedItemColor: isdarktheme ? Colors.white : Colors.black,
       ),
       // iconTheme: IconThemeData(

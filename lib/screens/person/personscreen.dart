@@ -9,7 +9,6 @@ import 'package:shop_smart_users/screens/person/custom_person.dart';
 import 'package:shop_smart_users/services/app_function.dart';
 import 'package:shop_smart_users/widget/custom_list_title.dart';
 
-
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class PersonScreenPage extends StatelessWidget {
@@ -17,7 +16,6 @@ class PersonScreenPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: Padding(
@@ -26,9 +24,10 @@ class PersonScreenPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-          
-          const  SizedBox(height: 50,),
-            const CustomPerson(),
+              const SizedBox(
+                height: 50,
+              ),
+              const CustomPerson(),
               const Divider(
                 thickness: 1,
               ),
@@ -95,13 +94,13 @@ class PersonScreenPage extends StatelessWidget {
               Center(
                 child: ElevatedButton.icon(
                   style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(
+                    backgroundColor: WidgetStateProperty.all(
                         const Color.fromARGB(197, 238, 34, 20)),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
+                    foregroundColor: WidgetStateProperty.all(Colors.white),
                   ),
                   onPressed: () async {
                     await AppFunction.showErrorOrWarning(context,
-                      subtitle: "are you sure you want to signout");
+                        subtitle: "are you sure you want to signout");
                   },
                   icon: const Icon(Icons.logout),
                   label: const Text("logout"),

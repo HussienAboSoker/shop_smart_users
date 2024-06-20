@@ -22,8 +22,8 @@ class CustomsubTitle extends StatelessWidget {
     return Text(
       label,
       maxLines: maxlines,
-      style:  TextStyle(
-          color: color,
+      style: TextStyle(
+        color: color,
         fontSize: fontSize,
         fontWeight: FontWeight.normal,
 

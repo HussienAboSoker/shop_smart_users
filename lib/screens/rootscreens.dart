@@ -6,7 +6,7 @@ import 'package:shop_smart_users/screens/cart/cart_screen.dart';
 
 class RootScreens extends StatefulWidget {
   const RootScreens({super.key});
-  static const namescreen='/rootscreens.dart';
+  static const namescreen = '/rootscreens.dart';
   @override
   // ignore: library_private_types_in_public_api
   _RootScreensState createState() => _RootScreensState();
@@ -60,8 +60,7 @@ class _RootScreensState extends State<RootScreens> {
         },
         items: const [
           BottomNavigationBarItem(
-            
-           // backgroundColor: Color.fromARGB(31, 148, 51, 51),
+            // backgroundColor: Color.fromARGB(31, 148, 51, 51),
             icon: Icon(
               Icons.home,
               //  color: Colors.amber,
@@ -69,7 +68,8 @@ class _RootScreensState extends State<RootScreens> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Badge(label: Text("9"), child: Icon(Icons.shopping_cart_outlined)),
+            icon: Badge(
+                label: Text("9"), child: Icon(Icons.shopping_cart_outlined)),
             label: 'Cart',
           ),
           BottomNavigationBarItem(

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:shop_smart_users/constants/imagepath.dart';
@@ -58,9 +57,11 @@ class _ForgotPassowrdState extends State<ForgotPassowrd> {
               //mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Image.asset(ImagePath.forgotPassword,
-                width: double.infinity,),
-              
+                Image.asset(
+                  ImagePath.forgotPassword,
+                  width: double.infinity,
+                ),
+
                 const SizedBox(
                   height: 20,
                 ),

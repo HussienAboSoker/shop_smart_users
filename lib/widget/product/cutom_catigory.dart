@@ -1,6 +1,6 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:shop_smart_users/screens/searchscreen.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 
@@ -12,7 +12,8 @@ class Cutomcatigory extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return GestureDetector(
       onTap: () {
-        log("catigory");
+        Navigator.pushNamed(context, SearchScreenPage.nameSrceen,
+            arguments: name);
       },
       child: Column(
         children: [
@@ -23,7 +24,6 @@ class Cutomcatigory extends StatelessWidget {
           ),
           CustomsubTitle(
             label: name,
-            
             maxlines: 1,
             fontSize: 14,
             fontWeight: FontWeight.bold,

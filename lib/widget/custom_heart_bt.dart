@@ -8,10 +8,8 @@ class CustomHeart extends StatelessWidget {
     return IconButton(
       onPressed: () {},
       icon: const Icon(
-        
         Icons.favorite,
         color: Colors.red,
-        
       ),
     );
   }

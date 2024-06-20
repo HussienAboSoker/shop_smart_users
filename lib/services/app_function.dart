@@ -8,7 +8,7 @@ class AppFunction {
   static Future<void> showErrorOrWarning(
     BuildContext context, {
     required String subtitle,
-   // required Function functionOk,
+    // required Function functionOk,
     bool iserror = false,
   }) async {
     await showDialog(
@@ -39,7 +39,7 @@ class AppFunction {
                     child: TextButton(
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.green),
+                            WidgetStateProperty.all(Colors.green),
                       ),
                       onPressed: () {
                         Navigator.pop(context);
@@ -51,11 +51,11 @@ class AppFunction {
                     width: 10,
                   ),
                   TextButton(
-                    onPressed:(){
+                    onPressed: () {
                       Navigator.pushNamed(context, LoginScreen.nameSrceen);
                     },
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
+                      backgroundColor: WidgetStateProperty.all(Colors.red),
                     ),
                     child: const Text("Ok"),
                   ),

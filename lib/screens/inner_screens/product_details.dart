@@ -1,5 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -13,6 +15,11 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
+    final productProvider = Provider.of<ProductProvider>(context);
+    //to read an argument ,that is return when navigation
+    String? productId = ModalRoute.of(context)!.settings.arguments as String;
+    final currantproduct = productProvider.productById(productId);
+
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -27,8 +34,7 @@ class _ProductDetailsState extends State<ProductDetails> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8),
               child: FancyShimmerImage(
-                imageUrl:
-                    'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
+                imageUrl: currantproduct!.productImage,
                 height: size.height * 0.30,
                 width: double.infinity,
               ),
@@ -42,27 +48,26 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 20,
                   ),
                   //title and price
-                  const Row(
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Flexible(
                         flex: 4,
                         child: CustomTitle(
-                          label:
-                              "Samsung Galaxy S23 Ultra 5G 256GB 8GB RAM W/SPEN",
+                          label: currantproduct.productTitle,
                           maxlines: 2,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 30,
                       ),
                       Flexible(
                         flex: 1,
                         child: Text(
-                          "134\$",
-                          style: TextStyle(
+                          currantproduct.productPrice,
+                          style: const TextStyle(
                               color: Colors.green,
                               fontSize: 20,
                               fontWeight: FontWeight.bold),
@@ -88,17 +93,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 20,
                   ),
                   //tow text
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CustomTitle(
+                      const CustomTitle(
                         label: "about this item",
                         fontSize: 25,
                       ),
                       //in caticory
 
                       CustomTitle(
-                        label: "in phone",
+                        label: currantproduct.productCategory,
                         fontSize: 18,
                       ),
                     ],
@@ -108,9 +113,9 @@ class _ProductDetailsState extends State<ProductDetails> {
                     height: 20,
                   ),
                   //more  details
-                  const Text(
-                    "Galaxy S23\n6.1” Flat FHD+ Dynamic AMOLED 2X\nInfinity-O Display (2340 x 1080)\n425ppi\nHDR10+ certified\nnfinity-O Display: a near bezel-less, full-frontal screen\nMeasured diagonally, Galaxy S23's screen size is 6.1\nin the full rectangle and 5.9\n with accounting for the rounded corners, Galaxy S23+'s screen size is 6.6 in the full rectangle and 6.4 with accounting for the rounded corners and Galaxy S23 Ultra's screen size is 6.8 in the full rectangle and 6.8 with accounting for the rounded corners; actual viewable area is less due to the rounded corners and camera hole",
-                    style: TextStyle(
+                  Text(
+                    currantproduct.productDescription,
+                    style: const TextStyle(
                       fontSize: 20,
                     ),
                   ),

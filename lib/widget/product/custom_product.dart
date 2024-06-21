@@ -1,6 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_smart_users/models/product_model.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
@@ -9,8 +10,8 @@ import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class CustomProduct extends StatefulWidget {
-  const CustomProduct({super.key, required this.productId});
-  final String productId;
+  const CustomProduct({super.key,required this.productId});
+ final String productId;
 
   @override
   State<CustomProduct> createState() => _CustomProductState();
@@ -19,18 +20,21 @@ class CustomProduct extends StatefulWidget {
 class _CustomProductState extends State<CustomProduct> {
   @override
   Widget build(BuildContext context) {
+
+   //  final productProvidermodel = Provider.of<ProductModel>(context);
+
     final productProvider = Provider.of<ProductProvider>(context);
     final currantproduct = productProvider.productById(widget.productId);
 
     Size size = MediaQuery.of(context).size;
-    return currantproduct == null
+    return  currantproduct == null    // productProvidermodel==null // 
         ? const SizedBox.shrink()
         : GestureDetector(
             onTap: () {
               Navigator.pushNamed(
                 context,
                 ProductDetails.nameSrceen,
-                arguments: currantproduct.productId,
+             //   arguments: currantproduct.productId,
               );
             },
             child: Column(
@@ -39,7 +43,8 @@ class _CustomProductState extends State<CustomProduct> {
                   borderRadius: BorderRadius.circular(8),
                   child: FancyShimmerImage(
                     boxFit: BoxFit.fill,
-                    imageUrl: currantproduct.productImage,
+                  //  imageUrl: productProvidermodel.productImage,
+                     imageUrl: currantproduct.productImage,
                     height: size.height * 0.22,
                     width: double.infinity,
                   ),
@@ -51,7 +56,8 @@ class _CustomProductState extends State<CustomProduct> {
                       flex: 5,
                       child: CustomTitle(
                         color: Colors.green,
-                        label: currantproduct.productTitle,
+                         label: currantproduct.productTitle,
+                       // label: productProvidermodel.productTitle,
                       ),
                     ),
                     const Flexible(child: CustomHeart()),
@@ -62,7 +68,8 @@ class _CustomProductState extends State<CustomProduct> {
                   children: [
                     Flexible(
                       child: CustomsubTitle(
-                        label: currantproduct.productPrice,
+                        //label: productProvidermodel.productPrice,
+                         label: currantproduct.productPrice,
                         color: Colors.green,
                       ),
                     ),

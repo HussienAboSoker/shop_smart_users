@@ -44,7 +44,7 @@ class ViewRecently extends StatelessWidget {
                     return const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: CustomProduct(
-                        productId: "",
+                       productId: "",
                       ),
                     );
                   },

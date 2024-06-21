@@ -1,3 +1,4 @@
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
@@ -43,14 +44,16 @@ class _SearchScreenPageState extends State<SearchScreenPage> {
     // Get the product data provider from the current context
     final productProvider = Provider.of<ProductProvider>(context);
     // Extract the category passed as an argument through navigation
+
     final String? passcatigory =
         ModalRoute.of(context)!.settings.arguments as String?;
+
     // Determine the list of products based on the passed category
 // If the passed category is 'null', use all products
 // If the passed category is not 'null', use the products that match the passed categor
 
     List<ProductModel> productlist = passcatigory == null
-        ? productProvider.products
+        ? productProvider.getproducts
         : productProvider.productByCaticory(catigoryname: passcatigory);
     return GestureDetector(
       onTap: FocusScope.of(context).unfocus,
@@ -58,9 +61,12 @@ class _SearchScreenPageState extends State<SearchScreenPage> {
         appBar: AppBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           leading: Image.asset(ImagePath.shopingCart),
-          title: CustomTitle(label: passcatigory ?? "search product"),
+          title: CustomTitle(
+            label: passcatigory ?? "search product"
+      
+            ),
         ),
-        body: productlist.isEmpty
+        body: productProvider.getproducts.isEmpty
             ? Center(
                 child: EmptySceen(
                   imagePath: ImagePath.emptySearch,
@@ -96,15 +102,16 @@ class _SearchScreenPageState extends State<SearchScreenPage> {
                       onChanged: (value) {
                         setState(() {
                           listSearchProduct = productProvider.searchByName(
+                            passproductlist: productlist,
                               productname: _searchController.text);
-                            print(listSearchProduct);
-                            print("lenght of list ${listSearchProduct.length}");
+                            
 
                         });
                       },
                       onSubmitted: (value) {
                         setState(() {
                           listSearchProduct = productProvider.searchByName(
+                            passproductlist: productlist,
                               productname: _searchController.text);
                         });
                       },
@@ -112,23 +119,30 @@ class _SearchScreenPageState extends State<SearchScreenPage> {
                   )),
                   if (_searchController.text.isNotEmpty &&
                       listSearchProduct.isEmpty) ...[
-                    const CustomTitle(label: "product not found"),
+                    const Text( "product not found",style: TextStyle( color: Colors.red,),),
                   ],
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: DynamicHeightGridView(
                         builder: (context, index) {
+                          
+                      //    log("productlist ${productlist[2].productId}");
+                         // print("list searsh is ${listSearchProduct[index].productId}");
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
+                            
                             //for listen a productmodel
                             child: CustomProduct(
+                              
                                 productId: _searchController.text.isEmpty
                                     ? productlist[index].productId
                                     : listSearchProduct[index].productId
+                                    
                                     ),
                           );
                         },
+                      //  itemCount: productProvider.getproducts.length,
                         itemCount: _searchController.text.isEmpty
                             ? productlist.length
                             : listSearchProduct.length,

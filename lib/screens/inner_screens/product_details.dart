@@ -27,102 +27,105 @@ class _ProductDetailsState extends State<ProductDetails> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            //image
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: FancyShimmerImage(
-                imageUrl: currantproduct!.productImage,
-                height: size.height * 0.30,
-                width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              //image
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: FancyShimmerImage(
+                  imageUrl: currantproduct!.productImage,
+                  height: size.height * 0.30,
+                  width: double.infinity,
+                ),
               ),
-            ),
-
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //title and price
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        flex: 4,
-                        child: CustomTitle(
-                          label: currantproduct.productTitle,
-                          maxlines: 2,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 30,
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Text(
-                          currantproduct.productPrice,
-                          style: const TextStyle(
-                              color: Colors.green,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      )
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //favorite ,add to cart buttom
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const CustomHeart(),
-                      Expanded(
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text("Add to cart")),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //tow text
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const CustomTitle(
-                        label: "about this item",
-                        fontSize: 25,
-                      ),
-                      //in caticory
-
-                      CustomTitle(
-                        label: currantproduct.productCategory,
-                        fontSize: 18,
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //more  details
-                  Text(
-                    currantproduct.productDescription,
-                    style: const TextStyle(
-                      fontSize: 20,
+          
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 20,
                     ),
-                  ),
-                ],
-              ),
-            )
-          ],
+                    //title and price
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          flex: 4,
+                          child: CustomTitle(
+                            label: currantproduct.productTitle,
+                            maxlines: 2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 30,
+                        ),
+                        Flexible(
+                          flex: 1,
+                          child: Text(
+                            currantproduct.productPrice,
+                            style: const TextStyle(
+                                color: Colors.green,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    //favorite ,add to cart buttom
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CustomHeart(),
+                        Expanded(
+                          child: ElevatedButton(
+                              onPressed: () {}, child: const Text("Add to cart")),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    //tow text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const CustomTitle(
+                          label: "about this item",
+                          fontSize: 25,
+                        ),
+                        //in caticory
+          
+                        CustomTitle(
+                          label: currantproduct.productCategory,
+                          fontSize: 18,
+                        ),
+                      ],
+                    ),
+          
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    //more  details
+                    Text(
+                      currantproduct.productDescription,
+                      style: const TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

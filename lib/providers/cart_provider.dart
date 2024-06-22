@@ -13,11 +13,16 @@ class CartProvider with ChangeNotifier {
     _cartproducts.putIfAbsent(
       productId, //key
       () => CartModel(
-          productId: productId, cartid: const Uuid().v4(), countatiy: 2),
+          productId: productId, cartid: const Uuid().v4(), countatiy: 1),
     );
+     notifyListeners() ;
   }
 
   bool isProductInCart({required String productId}) {
     return _cartproducts.containsKey(productId);
+    
   }
+  
+  
+
 }

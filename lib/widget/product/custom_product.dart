@@ -1,6 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
@@ -24,6 +25,13 @@ class _CustomProductState extends State<CustomProduct> {
 
     final productProvider = Provider.of<ProductProvider>(context);
     final currantproduct = productProvider.productById(widget.productId);
+
+
+    final cartProvider = Provider.of<CartProvider>(context);
+
+    
+    
+    
 
     Size size = MediaQuery.of(context).size;
     return  currantproduct == null    // productProvidermodel==null // 
@@ -77,12 +85,21 @@ class _CustomProductState extends State<CustomProduct> {
                         borderRadius: BorderRadius.circular(8),
                         color: Colors.blue,
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            if (cartProvider.isProductInCart(productId:currantproduct.productId)) {
+                              return;
+                            }
+                            cartProvider.addproducttocart(productId: currantproduct.productId);
+                          },
                           splashColor: Colors.red,
                           borderRadius: BorderRadius.circular(8),
-                          child: const Padding(
-                            padding: EdgeInsets.all(4.0),
-                            child: Icon(Icons.add_shopping_cart_outlined),
+                          child:  Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              cartProvider.isProductInCart(productId: currantproduct.productId)?
+                              Icons.check
+
+                              :Icons.add_shopping_cart_outlined),
                           ),
                         ),
                       ),

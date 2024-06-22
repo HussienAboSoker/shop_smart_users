@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:shop_smart_users/constants/imagepath.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/screens/cart/butttom_checkout.dart';
 import 'package:shop_smart_users/screens/cart/custom_card.dart';
 import 'package:shop_smart_users/widget/empty_screen.dart';
 
 class CartSceen extends StatelessWidget {
   const CartSceen({super.key});
-  final isemptycart = false;
+ 
   @override
   Widget build(BuildContext context) {
+    final cartProvider = Provider.of<CartProvider>(context);
+    
     return Scaffold(
       bottomSheet: const ButtomCheckout(),
       appBar: AppBar(
@@ -23,10 +27,10 @@ class CartSceen extends StatelessWidget {
               ))
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: const Text('Cart(6)'),
+        title:  Text('Cart(${cartProvider.getcartproducts.length})'),
         leading: Image.asset(ImagePath.shopingCart),
       ),
-      body: isemptycart
+      body: cartProvider.getcartproducts.isEmpty
           ? Center(
               child: EmptySceen(
                   title: "empty cart",
@@ -34,7 +38,7 @@ class CartSceen extends StatelessWidget {
                   imagePath: ImagePath.emptySearch),
             )
           : ListView.builder(
-              itemCount: 10,
+              itemCount: cartProvider.getcartproducts.length,
               itemBuilder: (context, index) {
                 return const CustomCard();
               },

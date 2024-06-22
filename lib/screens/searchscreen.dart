@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/models/product_model.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 
 import 'package:shop_smart_users/widget/product/custom_product.dart';
@@ -42,6 +43,7 @@ class _SearchScreenPageState extends State<SearchScreenPage> {
    
     // Get the product data provider from the current context
     final productProvider = Provider.of<ProductProvider>(context);
+    final cartProvider = Provider.of<CartProvider>(context);
     // Extract the category passed as an argument through navigation
 
     final String? passcatigory =

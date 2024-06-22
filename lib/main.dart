@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:shop_smart_users/constants/appthem.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
 import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
@@ -31,6 +32,9 @@ class MyApp extends StatelessWidget {
         }),
         ChangeNotifierProvider(create: (_) {
           return ProductProvider();
+        }),
+         ChangeNotifierProvider(create: (_) {
+          return CartProvider();
         }),
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {

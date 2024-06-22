@@ -1,5 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/screens/cart/quantity_sheet.dart';
 
 import '../../widget/text/cutom_title.dart';
@@ -9,6 +11,7 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cartprovider =Provider.of<CartProvider>(context) ;
     Size size = MediaQuery.of(context).size;
     return IntrinsicWidth(
       child: FittedBox(

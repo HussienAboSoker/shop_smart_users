@@ -14,11 +14,13 @@ class ProductProvider extends ChangeNotifier {
       return null;
     }
     return products.firstWhere(
-      (element) =>element.productId == productId,
+      (element) => element.productId == productId,
     );
   }
 
-  List<ProductModel> searchByName({required String productname,required List <ProductModel>passproductlist}) {
+  List<ProductModel> searchByName(
+      {required String productname,
+      required List<ProductModel> passproductlist}) {
     List<ProductModel> listOfProductSearch = passproductlist
         .where(
           (element) => element.productTitle.toLowerCase().contains(

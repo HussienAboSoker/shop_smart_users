@@ -11,7 +11,7 @@ import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
 import 'package:shop_smart_users/screens/auth/login_screen.dart';
-import 'package:shop_smart_users/screens/rootscreens.dart';
+import 'package:shop_smart_users/rootscreens.dart';
 import 'package:shop_smart_users/screens/searchscreen.dart';
 
 void main() {
@@ -34,6 +34,9 @@ class MyApp extends StatelessWidget {
           return ProductProvider();
         }),
          ChangeNotifierProvider(create: (_) {
+          return CartProvider();
+        }),
+          ChangeNotifierProvider(create: (_) {
           return CartProvider();
         }),
       ],

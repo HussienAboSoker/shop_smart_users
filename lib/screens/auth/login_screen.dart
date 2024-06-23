@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
 import 'package:shop_smart_users/screens/auth/sin_up_screen.dart';
-import 'package:shop_smart_users/screens/rootscreens.dart';
+import 'package:shop_smart_users/rootscreens.dart';
 import 'package:shop_smart_users/services/validation.dart';
 import 'package:shop_smart_users/widget/custom_textformfiled.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/screens/home/homescreen.dart';
 import 'package:shop_smart_users/screens/person/personscreen.dart';
 import 'package:shop_smart_users/screens/searchscreen.dart';
@@ -22,8 +24,8 @@ class _RootScreensState extends State<RootScreens> {
     super.initState();
     screens = [
       const HomeScreenPage(),
-      const CartSceen(),
       const SearchScreenPage(),
+      const CartSceen(),
       const PersonScreenPage(),
     ];
     _pageController = PageController(initialPage: _currentIndex);
@@ -37,6 +39,7 @@ class _RootScreensState extends State<RootScreens> {
 
   @override
   Widget build(BuildContext context) {
+    final cartprovider = Provider.of<CartProvider>(context);
     return Scaffold(
       body: PageView(
         controller: _pageController,
@@ -54,12 +57,13 @@ class _RootScreensState extends State<RootScreens> {
         onTap: (index) {
           _pageController.animateToPage(
             index,
-            duration: const Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 100),
             curve: Curves.easeInOut,
           );
         },
-        items: const [
-          BottomNavigationBarItem(
+
+        items: [
+          const BottomNavigationBarItem(
             // backgroundColor: Color.fromARGB(31, 148, 51, 51),
             icon: Icon(
               Icons.home,
@@ -67,16 +71,21 @@ class _RootScreensState extends State<RootScreens> {
             ),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Badge(
-                label: Text("9"), child: Icon(Icons.shopping_cart_outlined)),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(Icons.search),
             label: 'Search',
           ),
           BottomNavigationBarItem(
+            icon: Badge(
+              label: Text(
+                cartprovider.getcartproducts.length.toString(),
+              ),
+              child: const Icon(Icons.shopping_cart_outlined),
+            ),
+            label: 'Cart',
+          ),
+          
+          const BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Person',
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -9,7 +10,8 @@ class ButtomCheckout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  final  cartprovider = Provider.of<CartProvider>(context);
+    final cartprovider = Provider.of<CartProvider>(context);
+    final productProvider = Provider.of<ProductProvider>(context);
     Size size = MediaQuery.of(context).size;
     return Flexible(
       child: Container(
@@ -25,15 +27,16 @@ class ButtomCheckout extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-             Flexible(
+            Flexible(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomTitle(
                       label:
-                          "Total(6 product/${cartprovider.getcartproducts.length})"),
+                          "Total(${cartprovider.getcartproducts.length}products/${cartprovider.quntitycart()}items )"),
                   CustomsubTitle(
-                    label: "prise 120\$",
+                    label:
+                        "${cartprovider.totalPice(productprovider: productProvider)}\$",
                     color: Colors.green,
                   ),
                 ],

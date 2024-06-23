@@ -1,7 +1,9 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_smart_users/models/cart_model.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/screens/cart/quantity_sheet.dart';
 
 import '../../widget/text/cutom_title.dart';
@@ -11,9 +13,17 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cartprovider =Provider.of<CartProvider>(context) ;
+    final cartmodel = Provider.of<CartModel>(context);
+   
+
+    final productProvider = Provider.of<ProductProvider>(context);
+   
+    final curruntProduct = productProvider.productById(cartmodel.cartId);
+
     Size size = MediaQuery.of(context).size;
-    return IntrinsicWidth(
+    return curruntProduct ==null?
+    const Text(" carrunt product null"):
+    IntrinsicWidth(
       child: FittedBox(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -26,7 +36,7 @@ class CustomCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   child: FancyShimmerImage(
                     imageUrl:
-                        'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
+                    curruntProduct.productImage,
                     height: size.height * 0.2,
                     width: size.width * 0.2,
                   ),
@@ -41,10 +51,11 @@ class CustomCard extends StatelessWidget {
                       children: [
                         SizedBox(
                           width: size.width * 0.6,
-                          child: const CustomTitle(
-                              maxlines: 2,
-                              label:
-                                  '"Samsung Galaxy S23 Ultra 5G 256GB 8GB RAM W/SPEN"'),
+                          child: CustomTitle(
+                            maxlines: 2,
+                            label:
+                              curruntProduct.productTitle,
+                          ),
                         ),
                         IconButton(
                           onPressed: () {},
@@ -54,7 +65,9 @@ class CustomCard extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                        //  cartProvider.deltecart(cartId: cartmodel.cartId);
+                          },
                           icon: const Icon(Icons.delete),
                         ),
                       ],
@@ -65,9 +78,9 @@ class CustomCard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        const Text(
-                          "123 \$",
-                          style: TextStyle(color: Colors.green),
+                         Text(
+                          "${curruntProduct.productPrice}\$",
+                          style: const TextStyle(color: Colors.green),
                         ),
                         OutlinedButton.icon(
                           onPressed: () async {
@@ -84,7 +97,7 @@ class CustomCard extends StatelessWidget {
                             );
                           },
                           icon: const Icon(Icons.autofps_select),
-                          label: const Text("Qute"),
+                          label:  Text("Qute ${cartmodel.countatiy}"),
                         ),
                       ],
                     ),

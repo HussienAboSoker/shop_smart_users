@@ -41,7 +41,7 @@ class _CustomProductState extends State<CustomProduct> {
               Navigator.pushNamed(
                 context,
                 ProductDetails.nameSrceen,
-             //   arguments: currantproduct.productId,
+              arguments: currantproduct.productId,
               );
             },
             child: Column(

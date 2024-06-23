@@ -35,4 +35,6 @@ class ImagePath {
   static String roundedMap = "assets/images/rounded_map.png";
   static String successful = "assets/images/cloudy.png";
   static String warning = "assets/images/warning.png";
+  static String empty = "assets/images/No Product.png";
+
 }

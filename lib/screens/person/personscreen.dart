@@ -100,6 +100,8 @@ class PersonScreenPage extends StatelessWidget {
                   ),
                   onPressed: () async {
                     await AppFunction.showErrorOrWarning(context,
+                        iserror: false,
+                        funcation: () {},
                         subtitle: "are you sure you want to signout");
                   },
                   icon: const Icon(Icons.logout),

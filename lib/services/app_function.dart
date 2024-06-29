@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
-import 'package:shop_smart_users/screens/auth/login_screen.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
@@ -8,8 +7,12 @@ class AppFunction {
   static Future<void> showErrorOrWarning(
     BuildContext context, {
     required String subtitle,
+    required Function funcation,
+   required bool iserror ,
+
     // required Function functionOk,
-    bool iserror = false,
+    
+    
   }) async {
     await showDialog(
       context: context,
@@ -20,7 +23,7 @@ class AppFunction {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
-                iserror ? ImagePath.warning : ImagePath.error,
+                iserror ? ImagePath.error : ImagePath.warning,
                 width: 140,
                 height: 100,
               ),
@@ -42,7 +45,7 @@ class AppFunction {
                             WidgetStateProperty.all(Colors.green),
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
+                       return;
                       },
                       child: const Text("Cancel"),
                     ),
@@ -52,7 +55,8 @@ class AppFunction {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, LoginScreen.nameSrceen);
+                      funcation();
+                      Navigator.pop(context);
                     },
                     style: ButtonStyle(
                       backgroundColor: WidgetStateProperty.all(Colors.red),

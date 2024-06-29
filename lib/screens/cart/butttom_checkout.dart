@@ -17,36 +17,39 @@ class ButtomCheckout extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
             border: const Border(
-              top: BorderSide(color: Colors.white),
+              top: BorderSide(color: Colors.grey),
             ),
             color: Theme.of(context).scaffoldBackgroundColor),
         padding: EdgeInsets.symmetric(
             horizontal: size.width * 0.03, vertical: size.width * 0.03),
-        height: size.height * 0.1,
+       // height: size.height * 0.1,
         width: size.width * 1,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomTitle(
+        child: SizedBox(
+           height: kBottomNavigationBarHeight+10,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomTitle(
+                        label:
+                            "Total(${cartprovider.getcartproducts.length}products/${cartprovider.quntitycart()}items )"),
+                    CustomsubTitle(
                       label:
-                          "Total(${cartprovider.getcartproducts.length}products/${cartprovider.quntitycart()}items )"),
-                  CustomsubTitle(
-                    label:
-                        "${cartprovider.totalPice(productprovider: productProvider)}\$",
-                    color: Colors.green,
-                  ),
-                ],
+                          "${cartprovider.totalPice(productprovider: productProvider)}\$",
+                      color: Colors.green,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Icon(Icons.check_outlined),
-            ),
-          ],
+              ElevatedButton(
+                onPressed: () {},
+                child: const Icon(Icons.check_outlined),
+              ),
+            ],
+          ),
         ),
       ),
     );

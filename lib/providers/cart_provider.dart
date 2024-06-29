@@ -1,6 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/models/cart_model.dart';
-import 'package:shop_smart_users/models/product_model.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:uuid/uuid.dart';
 
@@ -24,20 +25,28 @@ class CartProvider with ChangeNotifier {
     return _cartproducts.containsKey(productId);
   }
 
-  deltecart({required cartId}) {
-    _cartproducts.remove(cartId);
+ void delteOneCart({required productId}) {
+    _cartproducts.remove(productId);
+    notifyListeners();
+  }
+  void deletAllCarts(){
+    _cartproducts.clear();
+    notifyListeners();
   }
 
-  double totalPice({required ProductProvider productprovider}) {
-    double total = 0;
+  int totalPice({required ProductProvider productprovider}) {
+    int total = 0;
 
     _cartproducts.forEach(
       (key, value) {
-        final currnatproduct = productprovider.productById(value.cartId);
+        final currnatproduct = productprovider.productById(value.productId);
+        print("currandata= = $currnatproduct");
         if (currnatproduct == null) {
           total += 0;
         } else {
-          total += double.parse(currnatproduct.productPrice) * value.countatiy;
+          total +=int.parse(currnatproduct.productPrice)  * value.countatiy;
+         
+
         }
       },
     );

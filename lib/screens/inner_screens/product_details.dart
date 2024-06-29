@@ -1,6 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
@@ -20,6 +21,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     String? productId = ModalRoute.of(context)!.settings.arguments as String?;
 
     final currantproduct = productProvider.productById(productId!);
+    final cartprovider = Provider.of<CartProvider>(context);
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -89,9 +91,23 @@ class _ProductDetailsState extends State<ProductDetails> {
                             children: [
                               const CustomHeart(),
                               Expanded(
-                                child: ElevatedButton(
-                                    onPressed: () {},
-                                    child: const Text("Add to cart")),
+                                child: ElevatedButton.icon(
+
+                                  onPressed: () {
+                                    if (cartprovider.isProductInCart(
+                                        productId: productId)) {
+                                      return;
+                                    }
+                                    cartprovider.addproducttocart(
+                                        productId: productId);
+                                  },
+                                  label:const Text("Add to cart") ,
+                                  icon: cartprovider.isProductInCart(
+                                          productId: productId)
+                                      ? const Icon(Icons.done)
+                                      
+                                      : const Icon(Icons.add_shopping_cart_outlined),
+                                ),
                               ),
                             ],
                           ),

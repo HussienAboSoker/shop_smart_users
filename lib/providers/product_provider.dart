@@ -62,7 +62,7 @@ A15 Bionic chip for lightning-fast performance
 ''',
         productImage:
             'https://btech.com/media/catalog/product/c/d/cddff4da834f457574cad8ee597bf15fec65fd2d72afe7cecd27cf1a41cdedfb.jpeg?width=560&height=560&store=ar&image-type=image',
-        productPrice: "134\$",
+        productPrice: "134",
         productQuantity: '10',
         productCategory: 'phone'),
     ProductModel(
@@ -84,7 +84,7 @@ UNLOCK AND PAY WITH TOUCH ID — Touch ID is built into the top button, so you c
 ''',
         productImage:
             'https://m.media-amazon.com/images/I/61PnHlc0HCL.__AC_SX300_SY300_QL70_ML2_.jpg',
-        productPrice: "400\$",
+        productPrice: "400",
         productQuantity: '10',
         productCategory: 'phone'),
     ProductModel(
@@ -98,7 +98,7 @@ UNLOCK AND PAY WITH TOUCH ID — Touch ID is built into the top button, so you c
 ''',
         productImage:
             'https://i.ebayimg.com/images/g/TTMAAOSwYBVkkoru/s-l960.webp',
-        productPrice: "12\$",
+        productPrice: "12",
         productQuantity: '10',
         productCategory: 'book'),
     ProductModel(
@@ -110,7 +110,7 @@ UNLOCK AND PAY WITH TOUCH ID — Touch ID is built into the top button, so you c
             "Galaxy S23\n6.1” Flat FHD+ Dynamic AMOLED 2X\nInfinity-O Display (2340 x 1080)\n425ppi\nHDR10+ certified\nnfinity-O Display: a near bezel-less, full-frontal screen\nMeasured diagonally, Galaxy S23's screen size is 6.1\nin the full rectangle and 5.9\n with accounting for the rounded corners, Galaxy S23+'s screen size is 6.6 in the full rectangle and 6.4 with accounting for the rounded corners and Galaxy S23 Ultra's screen size is 6.8 in the full rectangle and 6.8 with accounting for the rounded corners; actual viewable area is less due to the rounded corners and camera hole",
         productImage:
             'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
-        productPrice: "1500\$",
+        productPrice: "1500",
         productQuantity: '10',
         productCategory: 'phone'),
     ProductModel(
@@ -122,7 +122,7 @@ UNLOCK AND PAY WITH TOUCH ID — Touch ID is built into the top button, so you c
             "Galaxy S23\n6.1” Flat FHD+ Dynamic AMOLED 2X\nInfinity-O Display (2340 x 1080)\n425ppi\nHDR10+ certified\nnfinity-O Display: a near bezel-less, full-frontal screen\nMeasured diagonally, Galaxy S23's screen size is 6.1\nin the full rectangle and 5.9\n with accounting for the rounded corners, Galaxy S23+'s screen size is 6.6 in the full rectangle and 6.4 with accounting for the rounded corners and Galaxy S23 Ultra's screen size is 6.8 in the full rectangle and 6.8 with accounting for the rounded corners; actual viewable area is less due to the rounded corners and camera hole",
         productImage:
             'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
-        productPrice: "1500\$",
+        productPrice: "1500",
         productQuantity: '10',
         productCategory: 'phone'),
     ProductModel(
@@ -134,7 +134,7 @@ UNLOCK AND PAY WITH TOUCH ID — Touch ID is built into the top button, so you c
             "Galaxy S23\n6.1” Flat FHD+ Dynamic AMOLED 2X\nInfinity-O Display (2340 x 1080)\n425ppi\nHDR10+ certified\nnfinity-O Display: a near bezel-less, full-frontal screen\nMeasured diagonally, Galaxy S23's screen size is 6.1\nin the full rectangle and 5.9\n with accounting for the rounded corners, Galaxy S23+'s screen size is 6.6 in the full rectangle and 6.4 with accounting for the rounded corners and Galaxy S23 Ultra's screen size is 6.8 in the full rectangle and 6.8 with accounting for the rounded corners; actual viewable area is less due to the rounded corners and camera hole",
         productImage:
             'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
-        productPrice: "1500\$",
+        productPrice: "1500",
         productQuantity: '10',
         productCategory: 'phones'),
     ProductModel(
@@ -158,7 +158,7 @@ Tags: Apple, Apple Watch, Smart Watch, Smartwatches
  ''',
         productImage:
             'https://meststores.com/wp-content/uploads/2024/01/Apple-_Watch-_Series-_9-_GPS-_45mm_-Pink_-Aluminium-_Case-_with-_Light-_Pink-_Sport-_Band_-_SM-MEST-stores-best-online-shop-egypt1-2.webp',
-        productPrice: "200\$",
+        productPrice: "200",
         productQuantity: '10',
         productCategory: 'whatch'),
   ];

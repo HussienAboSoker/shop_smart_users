@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/models/cart_model.dart';
@@ -40,7 +39,6 @@ class CartProvider with ChangeNotifier {
     _cartproducts.forEach(
       (key, value) {
         final currnatproduct = productprovider.productById(value.productId);
-        print("currandata= = $currnatproduct");
         if (currnatproduct == null) {
           total += 0;
         } else {

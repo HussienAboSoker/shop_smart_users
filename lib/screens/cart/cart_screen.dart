@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:shop_smart_users/constants/imagepath.dart';
-import 'package:shop_smart_users/main.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/screens/cart/butttom_checkout.dart';
 import 'package:shop_smart_users/screens/cart/custom_card.dart';

@@ -1,5 +1,9 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_smart_users/models/product_model.dart';
+import 'package:shop_smart_users/providers/cart_provider.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 
@@ -9,17 +13,23 @@ class CutomLatestProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    //  final productProvider = Provider.of<ProductProvider>(context);
-    //  String? productId = ModalRoute.of(context)!.settings.arguments as String?;
-    // final currantproduct = productProvider.productById(productId!);
+     final productProvider = Provider.of<ProductProvider>(context);
+     final productModel = Provider.of<ProductModel>(context);
+    final currantproduct = productProvider.productById(productId: productModel.productId);
+     final Cartprovider = Provider.of<CartProvider>(context);
+
+    
 
     //return  currantproduct==null?const SizedBox.shrink():
 
-    return GestureDetector(
+    return  currantproduct==null?const SizedBox.shrink():
+     GestureDetector(
       onTap: () {
         Navigator.pushNamed(
           context,
           ProductDetails.nameSrceen,
+          arguments: productModel.productId,
+          
         );
       },
       child: Padding(
@@ -34,8 +44,7 @@ class CutomLatestProduct extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: FancyShimmerImage(
-                    imageUrl:
-                        'https://i.ebayimg.com/images/g/LGAAAOSwBq9lqOaT/s-l960.jpg',
+                    imageUrl:currantproduct.productImage,
                     height: size.height * 0.2,
                     width: size.width * 0.2,
                   ),
@@ -48,19 +57,19 @@ class CutomLatestProduct extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Samsung Galaxy S23 Ultra 5G 256GB 8GB RAM W/SPEN",
+                     Text(
+                     currantproduct.productTitle,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 3,
-                      style: TextStyle(fontSize: 15),
+                      style: const TextStyle(fontSize: 15),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    const FittedBox(
+                     FittedBox(
                       child: Text(
-                        "134\$",
-                        style: TextStyle(
+                       currantproduct.productPrice,
+                        style: const TextStyle(
                           color: Colors.green,
                           fontSize: 15,
                           fontWeight: FontWeight.bold,
@@ -72,10 +81,18 @@ class CutomLatestProduct extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.done,
-                              color: Colors.blue,
+                            onPressed: () {
+                              if(Cartprovider.isProductInCart(productId: currantproduct.productId)){
+                               return;
+                              }
+                              Cartprovider.addproducttocart(productId: currantproduct.productId);
+                            },
+                            icon:  Icon(
+                              Cartprovider.isProductInCart(productId: currantproduct.productId)?
+                              Icons.done:
+                              Icons.shopping_cart_outlined,
+                              color:  Cartprovider.isProductInCart(productId: currantproduct.productId)?
+                               Colors.blue:Colors.black,
                             ),
                           ),
                           const CustomHeart(),

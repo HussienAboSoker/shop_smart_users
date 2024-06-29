@@ -3,9 +3,9 @@ import 'package:shop_smart_users/models/product_model.dart';
 import 'package:uuid/uuid.dart';
 
 class ProductProvider extends ChangeNotifier {
-  ProductModel? productModel;
+ // ProductModel? productModel;
 
-  ProductModel? productById(String productId) {
+  ProductModel? productById({required String productId}) {
     if (products
         .where(
           (element) => element.productId == productId,

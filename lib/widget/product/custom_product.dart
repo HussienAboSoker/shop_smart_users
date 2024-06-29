@@ -24,7 +24,7 @@ class _CustomProductState extends State<CustomProduct> {
    //  final productProvidermodel = Provider.of<ProductModel>(context);
 
     final productProvider = Provider.of<ProductProvider>(context);
-    final currantproduct = productProvider.productById(widget.productId);
+    final currantproduct = productProvider.productById(productId:  widget.productId);
 
 
     final cartProvider = Provider.of<CartProvider>(context);

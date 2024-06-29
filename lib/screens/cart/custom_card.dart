@@ -18,7 +18,7 @@ class CustomCard extends StatelessWidget {
 
     final productProvider = Provider.of<ProductProvider>(context);
    
-    final curruntProduct = productProvider.productById(cartmodel.productId);
+    final curruntProduct = productProvider.productById(productId:  cartmodel.productId);
     final cartProvider = Provider.of<CartProvider>(context);
 
     Size size = MediaQuery.of(context).size;

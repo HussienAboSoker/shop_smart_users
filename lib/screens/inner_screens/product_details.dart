@@ -20,7 +20,7 @@ class _ProductDetailsState extends State<ProductDetails> {
     //to read an argument ,that is return when navigation
     String? productId = ModalRoute.of(context)!.settings.arguments as String?;
 
-    final currantproduct = productProvider.productById(productId!);
+    final currantproduct = productProvider.productById(productId:  productId!);
     final cartprovider = Provider.of<CartProvider>(context);
 
     Size size = MediaQuery.of(context).size;

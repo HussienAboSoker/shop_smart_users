@@ -38,7 +38,7 @@ class CartProvider with ChangeNotifier {
 
     _cartproducts.forEach(
       (key, value) {
-        final currnatproduct = productprovider.productById(value.productId);
+        final currnatproduct = productprovider.productById(productId:  value.productId);
         if (currnatproduct == null) {
           total += 0;
         } else {

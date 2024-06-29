@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/widget/product/cutom_latest_product.dart';
 
 class CutomListviewLastProduct extends StatelessWidget {
@@ -7,13 +9,19 @@ class CutomListviewLastProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final productprovider=Provider.of<ProductProvider>(context);
+    
+   
+    
     return SizedBox(
       height: size.height * 0.20,
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: productprovider.getproducts.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return const CutomLatestProduct();
+          return ChangeNotifierProvider.value(
+            value: productprovider.getproducts[index],
+            child: const CutomLatestProduct());
         },
       ),
     );

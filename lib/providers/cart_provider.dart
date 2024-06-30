@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:shop_smart_users/models/cart_model.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
@@ -24,11 +23,12 @@ class CartProvider with ChangeNotifier {
     return _cartproducts.containsKey(productId);
   }
 
- void delteOneCart({required productId}) {
+  void delteOneCart({required productId}) {
     _cartproducts.remove(productId);
     notifyListeners();
   }
-  void deletAllCarts(){
+
+  void deletAllCarts() {
     _cartproducts.clear();
     notifyListeners();
   }
@@ -38,13 +38,12 @@ class CartProvider with ChangeNotifier {
 
     _cartproducts.forEach(
       (key, value) {
-        final currnatproduct = productprovider.productById(productId:  value.productId);
+        final currnatproduct =
+            productprovider.productById(productId: value.productId);
         if (currnatproduct == null) {
           total += 0;
         } else {
-          total +=int.parse(currnatproduct.productPrice)  * value.countatiy;
-         
-
+          total += int.parse(currnatproduct.productPrice) * value.countatiy;
         }
       },
     );
@@ -60,5 +59,13 @@ class CartProvider with ChangeNotifier {
       },
     );
     return total;
+  }
+
+  initialQuntitycart(
+      {
+      required int index,
+      required CartModel cartModel}) {
+    cartModel.countatiy = index + 1;
+       notifyListeners();
   }
 }

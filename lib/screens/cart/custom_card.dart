@@ -62,14 +62,14 @@ class CustomCard extends StatelessWidget {
                         onPressed: () {},
                         icon: const Icon(
                           Icons.favorite,
-                          color: Colors.red,
+                          color: Colors.grey,
                         ),
                       ),
                       IconButton(
                         onPressed: () {
                        cartProvider.delteOneCart(productId: curruntProduct.productId);
                         },
-                        icon: const Icon(Icons.delete),
+                        icon: const Icon(Icons.delete,color: Colors.red,),
                       ),
                     ],
                   ),
@@ -80,7 +80,7 @@ class CustomCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                        Text(
-                        "${curruntProduct.productPrice}\$",
+                        "${curruntProduct.productPrice} \$",
                         style: const TextStyle(color: Colors.green),
                       ),
                       OutlinedButton.icon(
@@ -93,7 +93,9 @@ class CustomCard extends StatelessWidget {
                             )),
                             context: context,
                             builder: (context) {
-                              return const QunatitySheet();
+                              return ChangeNotifierProvider.value(
+                                value: cartmodel,
+                                child: const QunatitySheet());
                             },
                           );
                         },

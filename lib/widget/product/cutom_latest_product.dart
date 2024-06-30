@@ -16,7 +16,7 @@ class CutomLatestProduct extends StatelessWidget {
      final productProvider = Provider.of<ProductProvider>(context);
      final productModel = Provider.of<ProductModel>(context);
     final currantproduct = productProvider.productById(productId: productModel.productId);
-     final Cartprovider = Provider.of<CartProvider>(context);
+     final cartprovider = Provider.of<CartProvider>(context);
 
     
 
@@ -68,7 +68,7 @@ class CutomLatestProduct extends StatelessWidget {
                     ),
                      FittedBox(
                       child: Text(
-                       currantproduct.productPrice,
+                      "${ currantproduct.productPrice} \$ ",
                         style: const TextStyle(
                           color: Colors.green,
                           fontSize: 15,
@@ -82,16 +82,16 @@ class CutomLatestProduct extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {
-                              if(Cartprovider.isProductInCart(productId: currantproduct.productId)){
+                              if(cartprovider.isProductInCart(productId: currantproduct.productId)){
                                return;
                               }
-                              Cartprovider.addproducttocart(productId: currantproduct.productId);
+                              cartprovider.addproducttocart(productId: currantproduct.productId);
                             },
                             icon:  Icon(
-                              Cartprovider.isProductInCart(productId: currantproduct.productId)?
+                              cartprovider.isProductInCart(productId: currantproduct.productId)?
                               Icons.done:
                               Icons.shopping_cart_outlined,
-                              color:  Cartprovider.isProductInCart(productId: currantproduct.productId)?
+                              color:  cartprovider.isProductInCart(productId: currantproduct.productId)?
                                Colors.blue:Colors.black,
                             ),
                           ),

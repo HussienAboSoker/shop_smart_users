@@ -20,7 +20,7 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor: isdarktheme ? AppColors.darkprimary : Colors.blue,
+        selectedItemColor:  Colors.blue,
         unselectedItemColor: isdarktheme ? Colors.white : Colors.black,
       ),
       // iconTheme: IconThemeData(

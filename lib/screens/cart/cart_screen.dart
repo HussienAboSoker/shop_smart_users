@@ -18,14 +18,16 @@ class CartSceen extends StatelessWidget {
     return Scaffold(
       bottomSheet: const ButtomCheckout(),
       appBar: AppBar(
-        elevation: 0,
+        elevation: 1,
         actions: [
           IconButton(
               onPressed: () {
-                AppFunction.showErrorOrWarning(context,
-                iserror: false,
-                    subtitle: " clear all carts !",
-                    funcation: cartProvider.deletAllCarts);
+                if (cartProvider.getcartproducts.isNotEmpty) {
+                  AppFunction.showErrorOrWarning(context,
+                      iserror: false,
+                      subtitle: " clear all carts !",
+                      funcation: cartProvider.deletAllCarts);
+                }
               },
               icon: const Icon(
                 Icons.delete_forever,

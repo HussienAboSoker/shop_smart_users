@@ -22,10 +22,10 @@ class ButtomCheckout extends StatelessWidget {
             color: Theme.of(context).scaffoldBackgroundColor),
         padding: EdgeInsets.symmetric(
             horizontal: size.width * 0.03, vertical: size.width * 0.03),
-       // height: size.height * 0.1,
+        // height: size.height * 0.1,
         width: size.width * 1,
         child: SizedBox(
-           height: kBottomNavigationBarHeight+10,
+          height: kBottomNavigationBarHeight + 10,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -35,10 +35,10 @@ class ButtomCheckout extends StatelessWidget {
                   children: [
                     CustomTitle(
                         label:
-                            "Total(${cartprovider.getcartproducts.length}products/${cartprovider.quntitycart()}items )"),
+                            "Total ( ${cartprovider.getcartproducts.length} products / ${cartprovider.quntitycart()} item )"),
                     CustomsubTitle(
                       label:
-                          "${cartprovider.totalPice(productprovider: productProvider)}\$",
+                          "${cartprovider.totalPice(productprovider: productProvider)} \$",
                       color: Colors.green,
                     ),
                   ],

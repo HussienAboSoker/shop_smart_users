@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shop_smart_users/models/cart_model.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
+import 'package:shop_smart_users/services/app_function.dart';
 import 'package:uuid/uuid.dart';
 
 class CartProvider with ChangeNotifier {
@@ -31,6 +33,14 @@ class CartProvider with ChangeNotifier {
   void deletAllCarts() {
     _cartproducts.clear();
     notifyListeners();
+  }
+  showMoedDeletAllCarts({required CartProvider cartProvider,required BuildContext context}){
+    if (cartProvider.getcartproducts.isNotEmpty) {
+                  AppFunction.showErrorOrWarning(context,
+                      iserror: false,
+                      subtitle: " Delete all carts !",
+                      funcation: cartProvider.deletAllCarts);
+                }
   }
 
   int totalPice({required ProductProvider productprovider}) {
@@ -68,4 +78,7 @@ class CartProvider with ChangeNotifier {
     cartModel.countatiy = index + 1;
        notifyListeners();
   }
+ 
+
+
 }

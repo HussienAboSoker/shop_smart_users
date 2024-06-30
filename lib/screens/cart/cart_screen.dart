@@ -23,12 +23,20 @@ class CartSceen extends StatelessWidget {
           IconButton(
               onPressed: () {
                 if (cartProvider.getcartproducts.isNotEmpty) {
-                  AppFunction.showErrorOrWarning(context,
-                      iserror: false,
-                      subtitle: " clear all carts !",
-                      funcation: cartProvider.deletAllCarts);
+                  cartProvider.showMoedDeletAllCarts(
+                    cartProvider: cartProvider,
+                    context: context,
+                  );
                 }
               },
+
+              // if (cartProvider.getcartproducts.isNotEmpty) {
+              //   AppFunction.showErrorOrWarning(context,
+              //       iserror: false,
+              //       subtitle: " clear all carts !",
+              //       funcation: cartProvider.deletAllCarts);
+              // }
+
               icon: const Icon(
                 Icons.delete_forever,
                 color: Colors.red,

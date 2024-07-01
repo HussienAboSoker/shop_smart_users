@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
-import 'package:shop_smart_users/widget/custom_heart_bt.dart';
+import 'package:shop_smart_users/providers/wishlist_provider.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -20,8 +20,9 @@ class _ProductDetailsState extends State<ProductDetails> {
     //to read an argument ,that is return when navigation
     String? productId = ModalRoute.of(context)!.settings.arguments as String?;
 
-    final currantproduct = productProvider.productById(productId:  productId!);
+    final currantproduct = productProvider.productById(productId: productId!);
     final cartprovider = Provider.of<CartProvider>(context);
+    final wishlistProvider = Provider.of<WishlistProvider>(context);
 
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -89,10 +90,21 @@ class _ProductDetailsState extends State<ProductDetails> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const CustomHeart(),
+                              IconButton(
+                                onPressed: () {
+                                  wishlistProvider.addProductToWishlist(
+                                      productId: currantproduct.productId);
+                                },
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: wishlistProvider.isproductINWishlist(
+                                          productId: currantproduct.productId)
+                                      ? Colors.red
+                                      : Colors.grey,
+                                ),
+                              ),
                               Expanded(
                                 child: ElevatedButton.icon(
-
                                   onPressed: () {
                                     if (cartprovider.isProductInCart(
                                         productId: productId)) {
@@ -101,12 +113,12 @@ class _ProductDetailsState extends State<ProductDetails> {
                                     cartprovider.addproducttocart(
                                         productId: productId);
                                   },
-                                  label:const Text("Add to cart") ,
+                                  label: const Text("Add to cart"),
                                   icon: cartprovider.isProductInCart(
                                           productId: productId)
                                       ? const Icon(Icons.done)
-                                      
-                                      : const Icon(Icons.add_shopping_cart_outlined),
+                                      : const Icon(
+                                          Icons.add_shopping_cart_outlined),
                                 ),
                               ),
                             ],

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_smart_users/models/cart_model.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
+import 'package:shop_smart_users/providers/wishlist_provider.dart';
 import 'package:shop_smart_users/screens/cart/quantity_sheet.dart';
 
 import '../../widget/text/cutom_title.dart';
@@ -20,6 +21,9 @@ class CustomCard extends StatelessWidget {
    
     final curruntProduct = productProvider.productById(productId:  cartmodel.productId);
     final cartProvider = Provider.of<CartProvider>(context);
+
+    final wishlistProvider = Provider.of<WishlistProvider>(context);
+
 
     Size size = MediaQuery.of(context).size;
     return curruntProduct ==null
@@ -59,11 +63,16 @@ class CustomCard extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.favorite,
-                          color: Colors.grey,
-                        ),
+                        onPressed: () {
+                          wishlistProvider.addProductToWishlist(productId:curruntProduct.productId);
+                        },
+                         icon: Icon(
+                        Icons.favorite,
+                        color: wishlistProvider.isproductINWishlist(
+                                productId: curruntProduct.productId)
+                            ? Colors.red
+                            : Colors.grey,
+                      ),
                       ),
                       IconButton(
                         onPressed: () {

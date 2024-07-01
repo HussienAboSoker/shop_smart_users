@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
+import 'package:shop_smart_users/providers/wishlist_provider.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
-import 'package:shop_smart_users/widget/custom_heart_bt.dart';
 
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
 import 'package:shop_smart_users/widget/text/cutom_title.dart';
@@ -27,6 +27,7 @@ class _CustomProductState extends State<CustomProduct> {
         productProvider.productById(productId: widget.productId);
 
     final cartProvider = Provider.of<CartProvider>(context);
+    final wishlistProvider = Provider.of<WishlistProvider>(context);
 
     Size size = MediaQuery.of(context).size;
     return currantproduct == null // productProvidermodel==null //
@@ -62,7 +63,20 @@ class _CustomProductState extends State<CustomProduct> {
                         // label: productProvidermodel.productTitle,
                       ),
                     ),
-                    const Flexible(child: CustomHeart()),
+                    Flexible(
+                        child: IconButton(
+                      onPressed: () {
+                        wishlistProvider.addProductToWishlist(
+                            productId: currantproduct.productId);
+                      },
+                      icon: Icon(
+                        Icons.favorite,
+                        color: wishlistProvider.isproductINWishlist(
+                                productId: currantproduct.productId)
+                            ? Colors.red
+                            : Colors.grey,
+                      ),
+                    )),
                   ],
                 ),
                 Row(

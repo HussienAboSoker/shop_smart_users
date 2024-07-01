@@ -6,7 +6,7 @@ class WishlistProvider with ChangeNotifier {
   //create a map for wishlist
   final Map<String, WishlistModel> _wishlist = {};
   //create a getter  
-  get getWishList => _wishlist;
+   Map<String, WishlistModel>get getWishList => _wishlist;
   //create a method for add prosduct to wishlist
   addProductToWishlist({required productId}) {
     _wishlist.putIfAbsent(
@@ -16,5 +16,15 @@ class WishlistProvider with ChangeNotifier {
         wishlistId: const Uuid().v4(),
       ),
     );
+    notifyListeners();
   }
+bool isproductINWishlist({required productId}){
+  return getWishList.containsKey(productId);
+}
+
+void removeAllWishlist(){
+  _wishlist.clear();
+  notifyListeners();
+}
+
 }

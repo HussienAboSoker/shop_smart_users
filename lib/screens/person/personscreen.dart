@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
+import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
 
 import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
@@ -17,6 +18,8 @@ class PersonScreenPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
+   
+    
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -44,7 +47,9 @@ class PersonScreenPage extends StatelessWidget {
               //WishList
               CustomListTitle(
                 function: () {
-                  Navigator.pushNamed(context, WishList.nameSrceen);
+                  Navigator.pushNamed(context, WishList.nameSrceen,
+                  );
+                  
                 },
                 imagePath: ImagePath.wishlist,
                 title: 'wishlist',

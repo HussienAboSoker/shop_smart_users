@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shop_smart_users/rootscreens.dart';
 
 import 'package:shop_smart_users/screens/auth/pick_image.dart';
 import 'package:shop_smart_users/services/app_function.dart';
@@ -62,11 +65,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
-  Future<void> _sinUpvalidat() async {
+  Future<bool> _sinUpvalidat() async {
+    final Completer<bool> completer = Completer<bool>();
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _formKey.currentState!.validate();
-      FocusScope.of(context).unfocus();
+      final isValid = _formKey.currentState!.validate(); // Validate the form
+      FocusScope.of(context).unfocus(); // Close the keyboard
+      completer
+          .complete(isValid); // Complete the future with the validation result
     });
+
+    return completer
+        .future; // Return the future, which will resolve to a boolean
   }
 
   Future<void> _pickedimagefun() async {
@@ -80,11 +90,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
         },
         funGalary: () async {
           _pickedimageFill =
-              await imagePicker.pickImage(source: ImageSource.camera);
+              await imagePicker.pickImage(source: ImageSource.gallery);
           setState(() {});
         },
-        funRemove: () async {
-          _pickedimageFill == null;
+        funRemove: () {
+          setState(() {
+            _pickedimageFill == null;
+          });
         });
   }
 
@@ -94,180 +106,218 @@ class _SignUpScreenState extends State<SignUpScreen> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Form(
-            key: _formKey,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 40,
+          child: SingleChildScrollView(
+            child: Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 40,
+                ),
+                //Shop Smart
+                const Align(
+                  alignment: Alignment.center,
+                  child: CustomTitle(
+                    label: 'Shop Smart',
+                    fontSize: 30,
                   ),
-                  //Shop Smart
-                  const Align(
-                    alignment: Alignment.center,
-                    child: CustomTitle(
-                      label: 'Shop Smart',
-                      fontSize: 30,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //welcom
-                  const CustomTitle(
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                //welcom
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: CustomTitle(
                     label: 'Welcom ',
                     fontSize: 25,
                   ),
-                  const CustomsubTitle(
-                    label:
-                        'sin up now to recieve spical offers and updates from our app',
-                    fontSize: 20,
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  //pickimage
-                  Center(
-                    child: PickImageDialog(
-                      pickedimage: _pickedimageFill,
-                      function: () async {
-                        await _pickedimagefun();
-                      },
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  //fullname
-                  CustomTextFormFiled(
-                    // onFieldSubmitted: () {
-                    //   FocusScope.of(context).requestFocus(_focusNodePassword);
-                    // },
-                    controller: _nameController,
-                    focusNode: _focusNodeNameController,
-                    hintText: 'full name',
-                    keyboardType: TextInputType.name,
-                    textInputAction: TextInputAction.next,
-                    prefixIcon: Icons.person,
-
-                    validator: FormValidator.validatFullname,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //email
-                  CustomTextFormFiled(
-                    // onFieldSubmitted: () {
-                    //   FocusScope.of(context).requestFocus(_focusNodePassword);
-                    // },
-                    controller: _emailController,
-                    focusNode: _focusNodeEmail,
-                    hintText: 'username@domain.com',
-                    keyboardType: TextInputType.emailAddress,
-                    textInputAction: TextInputAction.next,
-                    prefixIcon: Icons.email,
-
-                    validator: FormValidator.validateEmail,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  //password
-                  CustomTextFormFiled(
-                    obscureText: obscureText,
-                    textInputAction: TextInputAction.next,
-                    // onFieldSubmitted: () {
-                    //   _loginvalidat();
-                    // },
-                    controller: _passwordController,
-                    focusNode: _focusNodePassword,
-                    hintText: 'Password',
-                    keyboardType: TextInputType.visiblePassword,
-                    prefixIcon: Icons.lock,
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          obscureText = !obscureText;
-                        });
-                      },
-                      icon: Icon(obscureText
-                          ? Icons.visibility
-                          : Icons.visibility_off),
-                    ),
-                    validator: FormValidator.validatePassword,
-
-                    //
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //repetpassword
-                  CustomTextFormFiled(
-                    validator: (value) {
-                      return FormValidator.validatRepetPassword(
-                        value: value,
-                        password: _passwordController.text,
-                      );
+                ),
+                const CustomsubTitle(
+                  label:
+                      'sin up now to recieve spical offers and updates from our app',
+                  fontSize: 20,
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                //pickimage
+                Center(
+                  child: PickImageDialog(
+                    pickedimage: _pickedimageFill,
+                    function: () async {
+                      await _pickedimagefun();
                     },
+                  ),
+                ),
+                //form
+                Form(
+                    key: _formKey,
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        //fullname
+                        CustomTextFormFiled(
+                          // onFieldSubmitted: () {
+                          //   FocusScope.of(context).requestFocus(_focusNodePassword);
+                          // },
+                          controller: _nameController,
+                          focusNode: _focusNodeNameController,
+                          hintText: 'full name',
+                          keyboardType: TextInputType.name,
+                          textInputAction: TextInputAction.next,
+                          prefixIcon: Icons.person,
 
-                    obscureText: obscureText,
-                    textInputAction: TextInputAction.done,
-                    // onFieldSubmitted: () {
-                    //   _loginvalidat();
-                    // },
-                    controller: _reppasswordController,
-                    focusNode: _focusNodeRepController,
-                    hintText: 'Repeat Password',
-                    keyboardType: TextInputType.visiblePassword,
-                    prefixIcon: Icons.lock,
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          obscureText = !obscureText;
-                        });
-                      },
-                      icon: Icon(obscureText
-                          ? Icons.visibility
-                          : Icons.visibility_off),
-                    ),
-                    //  validator: FormValidator.validatePassword,
+                          validator: FormValidator.validatFullname,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //email
+                        CustomTextFormFiled(
+                          // onFieldSubmitted: () {
+                          //   FocusScope.of(context).requestFocus(_focusNodePassword);
+                          // },
+                          controller: _emailController,
+                          focusNode: _focusNodeEmail,
+                          hintText: 'username@domain.com',
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.next,
+                          prefixIcon: Icons.email,
 
-                    //
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                          validator: FormValidator.validateEmail,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
 
-                  //Sign in button
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _sinUpvalidat();
-                      },
-                      child: const Text("Sign up "),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                        //password
+                        CustomTextFormFiled(
+                          obscureText: obscureText,
+                          textInputAction: TextInputAction.next,
+                          // onFieldSubmitted: () {
+                          //   _loginvalidat();
+                          // },
+                          controller: _passwordController,
+                          focusNode: _focusNodePassword,
+                          hintText: 'Password',
+                          keyboardType: TextInputType.visiblePassword,
+                          prefixIcon: Icons.lock,
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                obscureText = !obscureText;
+                              });
+                            },
+                            icon: Icon(obscureText
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
+                          validator: FormValidator.validatePassword,
 
-                  TextButton(
-                    onPressed: () {},
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text(
-                        "Sin in ?",
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                          //
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //repetpassword
+                        CustomTextFormFiled(
+                          validator: (value) {
+                            return FormValidator.validatRepetPassword(
+                              value: value,
+                              password: _passwordController.text,
+                            );
+                          },
+
+                          obscureText: obscureText,
+                          textInputAction: TextInputAction.done,
+                          // onFieldSubmitted: () {
+                          //   _loginvalidat();
+                          // },
+                          controller: _reppasswordController,
+                          focusNode: _focusNodeRepController,
+                          hintText: 'Repeat Password',
+                          keyboardType: TextInputType.visiblePassword,
+                          prefixIcon: Icons.lock,
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                obscureText = !obscureText;
+                              });
+                            },
+                            icon: Icon(obscureText
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
+                          //  validator: FormValidator.validatePassword,
+
+                          //
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+
+                        //Sign up button
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              try {
+                                bool isValid =
+                                    await _sinUpvalidat(); // Wait for the validation result
+                                if (isValid) {
+                                  Navigator.pushNamed(
+                                      context,
+                                      RootScreens
+                                          .namescreen); // Proceed if the form is valid
+                                } else {
+                                  // Show a message if the form is not valid
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                        content: Text(
+                                            "Please correct the errors in the form")),
+                                  );
+                                }
+                              } catch (e) {
+                                // Handle any unexpected errors
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Error: $e")),
+                                );
+                              }
+                            },
+                            child: const Text("Sign up "),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        //I already have an account
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text("I already have an account"),
+                            TextButton(
+                              onPressed: () {},
+                              child: TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text(
+                                  "Sin in ?",
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ))
+              ],
             ),
           ),
         ),

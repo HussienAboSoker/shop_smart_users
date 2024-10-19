@@ -60,9 +60,9 @@ class _SearchScreenPageState extends State<SearchScreenPage> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          leading: Image.asset(ImagePath.shopingCart),
-          title: CustomTitle(
-            label: passcatigory ?? "search product"
+          leading: Image.asset(ImagePath.shopingCart,width: 20,height: 20,),
+          title: Text(
+             passcatigory ?? "search product"
       
             ),
         ),

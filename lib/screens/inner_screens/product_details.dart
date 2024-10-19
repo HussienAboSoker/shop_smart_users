@@ -1,5 +1,6 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
@@ -61,11 +62,11 @@ class _ProductDetailsState extends State<ProductDetails> {
                             children: [
                               Flexible(
                                 flex: 4,
-                                child: CustomTitle(
-                                  label: currantproduct.productTitle,
-                                  maxlines: 2,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
+                                child: Text(
+                                   currantproduct.productTitle,
+                                  style: GoogleFonts.roboto(
+    textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+  ),
                                 ),
                               ),
                               const SizedBox(
@@ -132,7 +133,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                             children: [
                               const CustomTitle(
                                 label: "about this item",
-                                fontSize: 25,
+                                fontSize: 20,
                               ),
                               //in caticory
 
@@ -147,10 +148,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                             height: 20,
                           ),
                           //more  details
-                          Text(
-                            currantproduct.productDescription,
-                            style: const TextStyle(
-                              fontSize: 20,
+                          Align(alignment: Alignment.topRight,
+
+                            child: Text(
+                              currantproduct.productDescription,
+                              style: GoogleFonts.roboto(
+                                textStyle: TextStyle(fontSize: 16, 
+                               ),
+                              ),
                             ),
                           ),
                         ],

@@ -15,6 +15,7 @@ class CustomTitle extends StatelessWidget {
   final FontWeight fontWeight;
   final int maxlines;
   final Color? color;
+  
   // final Color color;
   //final Decoration? decoration;
   @override

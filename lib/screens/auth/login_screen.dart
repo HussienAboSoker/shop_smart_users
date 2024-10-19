@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
 import 'package:shop_smart_users/screens/auth/sin_up_screen.dart';
@@ -43,11 +46,14 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  Future<void> _loginvalidat() async {
+  Future<bool> _loginvalidat() async {
+    final Completer<bool> completer = Completer();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _formKey.currentState!.validate();
+      final isvalid = _formKey.currentState!.validate();
       FocusScope.of(context).unfocus();
+      completer.complete(isvalid);
     });
+    return completer.future;
   }
 
   @override
@@ -84,9 +90,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       label: 'Welcom Back',
                       fontSize: 20,
                     ),
-                    const CustomsubTitle(
-                      label: 'Lets get logged in so you can start exploring',
-                      fontSize: 20,
+                    Text(
+                      "Lets get logged in so you can start exploring",
+                      style: GoogleFonts.roboto(),
                     ),
                     const SizedBox(
                       height: 50,
@@ -156,21 +162,41 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       width: MediaQuery.of(context).size.width,
                       child: ElevatedButton(
-                        onPressed: () {
-                          _loginvalidat();
+                        onPressed: () async {
+                          final isvalid = await _loginvalidat();
+
+                          try {
+                            if (isvalid) {
+                              Navigator.pushNamed(
+                                  context, RootScreens.namescreen);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                      "Please correct the errors in the form"),
+                                ),
+                              );
+                            }
+                          } catch (e) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Error:$e"),
+                              ),
+                            );
+                          }
                         },
                         child: const Text("Sign in "),
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     //OR CONNECT USING
                     const Align(
                       alignment: Alignment.center,
                       child: CustomsubTitle(
                         label: 'OR CONNECT USING',
-                        fontSize: 20,
+                        fontSize: 14,
                       ),
                     ),
                     const SizedBox(
@@ -190,7 +216,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Ionicons.logo_google,
                                 color: Colors.red,
                               )),
-                              label: const Text(
+                              label: Text(
                                 "sign in with google",
                                 overflow: TextOverflow.ellipsis,
                               ),

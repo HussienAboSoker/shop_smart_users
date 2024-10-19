@@ -28,12 +28,24 @@ class PickImageDialog extends StatelessWidget {
                       color: Colors.white,
                     ),
                   )
-                : Image.file(
-                    fit: BoxFit.fill,
-                    File(
-                      pickedimage!.path,
+                : ClipRRect(
+                   borderRadius: BorderRadius.circular(18),
+                  child: Container(
+                      height: size.height * 0.2,
+                    width: size.width * 0.4,
+                       decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(),
+                      color: Colors.white,
                     ),
+                    child: Image.file(
+                        fit: BoxFit.fill,
+                        File(
+                          pickedimage!.path,
+                        ),
+                      ),
                   ),
+                ),
           ),
         ),
         Positioned(
@@ -43,12 +55,9 @@ class PickImageDialog extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             color: const Color.fromARGB(181, 110, 84, 152),
             child: InkWell(
-              onTap: () async {
-                await AppFunction.pickImageDialog(
-                    context: context,
-                    funGalary: () {},
-                    funRemove: () {},
-                    funcamera: () {});
+              onTap: ()  {
+              
+               function();
               },
               splashColor: Colors.blue,
               borderRadius: BorderRadius.circular(8),

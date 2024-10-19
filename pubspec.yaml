@@ -36,6 +36,8 @@ dependencies:
   firebase_core: ^2.32.0
   flutter:
     sdk: flutter
+  
+  google_fonts: ^6.2.1
   iconly: ^1.0.1
   image_picker: ^1.0.7
   ionicons: ^0.2.2

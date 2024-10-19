@@ -15,24 +15,22 @@ class EmptySceen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+     mainAxisAlignment: MainAxisAlignment.center,
       children: [
+
         Image.asset(
+         // fit: BoxFit.fill,
           imagePath,
-          height: 200,
-          width: 200,
+                     height:500 ,
+           width: 300,
         ),
-        const CustomTitle(
-          label: "whoops",
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-        ),
-        CustomTitle(
-          label: title,
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-        ),
-        CustomsubTitle(label: subtitle),
+       
+        // CustomTitle(
+        //   label: title,
+        //   fontSize: 14,
+        //   fontWeight: FontWeight.bold,
+        // ),
+        // CustomsubTitle(label: subtitle),
       ],
     );
   }

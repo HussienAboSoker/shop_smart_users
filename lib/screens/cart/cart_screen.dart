@@ -44,14 +44,14 @@ class CartSceen extends StatelessWidget {
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text('Cart(${cartProvider.getcartproducts.length})'),
-        leading: Image.asset(ImagePath.shopingCart),
+        leading: Image.asset(ImagePath.shopingCart,width: 2,),
       ),
       body: cartProvider.getcartproducts.isEmpty
           ? Center(
               child: EmptySceen(
                   title: "empty cart",
                   subtitle: "pleeese add cart",
-                  imagePath: ImagePath.emptySearch),
+                  imagePath: ImagePath.emptycart),
             )
           : Column(
               children: [

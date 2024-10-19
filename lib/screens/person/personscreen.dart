@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_smart_users/constants/imagepath.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/screens/auth/login_screen.dart';
 
 import 'package:shop_smart_users/screens/inner_screens/view_recently.dart';
 import 'package:shop_smart_users/screens/inner_screens/wishlist.dart';
@@ -39,7 +40,7 @@ class PersonScreenPage extends StatelessWidget {
               //general
               CustomListTitle(
                 function: () {},
-                imagePath: ImagePath.address,
+                imagePath: ImagePath.order,
                 title: 'All product',
               ),
               //WishList
@@ -58,7 +59,7 @@ class PersonScreenPage extends StatelessWidget {
                 function: () async {
                   await Navigator.pushNamed(context, ViewRecently.nameSrceen);
                 },
-                imagePath: ImagePath.address,
+                imagePath: ImagePath.recent,
                 title: 'viewed recentaly',
               ),
               CustomListTitle(
@@ -66,9 +67,15 @@ class PersonScreenPage extends StatelessWidget {
                 imagePath: ImagePath.address,
                 title: 'Address',
               ),
+                SizedBox(
+height: 20,
+              ),
               const Divider(
                 thickness: 1,
                 height: 12,
+              ),
+              SizedBox(
+height: 20,
               ),
               const CustomTitle(label: 'Setting'),
               //dark or light
@@ -97,7 +104,13 @@ class PersonScreenPage extends StatelessWidget {
                   onPressed: () async {
                     await AppFunction.showErrorOrWarning(context,
                         iserror: false,
-                        funcation: () {},
+                        funcation: () {
+                          Navigator.pushNamed(
+                context,
+               LoginScreen.nameSrceen
+               
+              );
+                        },
                         subtitle: "are you sure you want to signout");
                   },
                   icon: const Icon(Icons.logout),

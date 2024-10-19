@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppThemes.themeData(
               isdarktheme: themeProvider.getIsdarkTheme, context: context),
-          home: const RootScreens(),
+          home: const LoginScreen(), 
           routes: {
             RootScreens.namescreen: (context) => const RootScreens(),
             SignUpScreen.nameSrceen: (context) => const SignUpScreen(),

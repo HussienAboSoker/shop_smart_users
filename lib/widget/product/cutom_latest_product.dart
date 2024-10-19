@@ -101,7 +101,7 @@ class CutomLatestProduct extends StatelessWidget {
                                     color: cartprovider.isProductInCart(
                                             productId: currantproduct.productId)
                                         ? Colors.blue
-                                        : Colors.black,
+                                        : Colors.white,
                                   ),
                                 ),
                                 IconButton(

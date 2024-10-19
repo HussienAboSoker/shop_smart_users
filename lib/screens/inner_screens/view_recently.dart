@@ -1,7 +1,9 @@
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:shop_smart_users/constants/imagepath.dart';
+import 'package:shop_smart_users/providers/view_recntly_provider.dart';
 import 'package:shop_smart_users/screens/cart/butttom_checkout.dart';
 
 import 'package:shop_smart_users/widget/empty_screen.dart';
@@ -9,10 +11,15 @@ import 'package:shop_smart_users/widget/product/custom_product.dart';
 
 class ViewRecently extends StatelessWidget {
   const ViewRecently({super.key});
-  final isemptycart = false;
+ 
   static const nameSrceen = '/ViewRecently';
   @override
   Widget build(BuildContext context) {
+    final viewRecrntlyProvider = Provider.of<ViewRecntlyprovider>(context);
+   
+   
+
+
     return Scaffold(
       bottomSheet: const ButtomCheckout(),
       appBar: AppBar(
@@ -26,10 +33,10 @@ class ViewRecently extends StatelessWidget {
               ))
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        title: const Text('ViewRecently(6)'),
+        title:  Text('ViewRecently(${viewRecrntlyProvider.getviewrecnetly.length})'),
         //   leading: Image.asset(ImagePath.shopingCart),
       ),
-      body: isemptycart
+      body: viewRecrntlyProvider.getviewrecnetly.isEmpty
           ? Center(
               child: EmptySceen(
                   title: "empty ViewRecently",
@@ -38,17 +45,17 @@ class ViewRecently extends StatelessWidget {
             )
           : Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding:  const EdgeInsets.all(8.0),
                 child: DynamicHeightGridView(
                   builder: (context, index) {
-                    return const Padding(
-                      padding: EdgeInsets.all(8.0),
+                    return  Padding(
+                      padding:  const EdgeInsets.all(8.0),
                       child: CustomProduct(
-                       productId: "",
+                       productId:viewRecrntlyProvider.getviewrecnetly.values.toList()[index].productId,
                       ),
                     );
                   },
-                  itemCount: 90,
+                  itemCount:viewRecrntlyProvider.getviewrecnetly.length,
                   crossAxisCount: 2,
                 ),
               ),

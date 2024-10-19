@@ -5,6 +5,7 @@ import 'package:shop_smart_users/constants/appthem.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
 import 'package:shop_smart_users/providers/themeprovider.dart';
+import 'package:shop_smart_users/providers/view_recntly_provider.dart';
 import 'package:shop_smart_users/providers/wishlist_provider.dart';
 import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
 import 'package:shop_smart_users/screens/auth/sin_up_screen.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
          
         ChangeNotifierProvider(create: (_) {
           return WishlistProvider();
+        }),
+         ChangeNotifierProvider(create: (_) {
+          return ViewRecntlyprovider();
         }),
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {

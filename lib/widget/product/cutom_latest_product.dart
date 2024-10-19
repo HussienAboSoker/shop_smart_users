@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_smart_users/models/product_model.dart';
 import 'package:shop_smart_users/providers/cart_provider.dart';
 import 'package:shop_smart_users/providers/product_provider.dart';
+import 'package:shop_smart_users/providers/view_recntly_provider.dart';
 import 'package:shop_smart_users/providers/wishlist_provider.dart';
 import 'package:shop_smart_users/screens/inner_screens/product_details.dart';
 
@@ -19,6 +20,8 @@ class CutomLatestProduct extends StatelessWidget {
         productProvider.productById(productId: productModel.productId);
     final cartprovider = Provider.of<CartProvider>(context);
     final wishlistProvider = Provider.of<WishlistProvider>(context);
+    //viewrecntly
+    final viewRecentlyProvider=Provider.of<ViewRecntlyprovider>(context);
 
     //return  currantproduct==null?const SizedBox.shrink():
 
@@ -26,6 +29,7 @@ class CutomLatestProduct extends StatelessWidget {
         ? const SizedBox.shrink()
         : GestureDetector(
             onTap: () {
+             viewRecentlyProvider.addToViewRecently(productId: currantproduct.productId);
               Navigator.pushNamed(
                 context,
                 ProductDetails.nameSrceen,
@@ -101,18 +105,18 @@ class CutomLatestProduct extends StatelessWidget {
                                   ),
                                 ),
                                 IconButton(
-                                onPressed: () {
-                                  wishlistProvider.addProductToWishlist(
-                                      productId: currantproduct.productId);
-                                },
-                                icon: Icon(
-                                  Icons.favorite,
-                                  color: wishlistProvider.isproductINWishlist(
-                                          productId: currantproduct.productId)
-                                      ? Colors.red
-                                      : Colors.grey,
+                                  onPressed: () {
+                                    wishlistProvider.addProductToWishlist(
+                                        productId: currantproduct.productId);
+                                  },
+                                  icon: Icon(
+                                    Icons.favorite,
+                                    color: wishlistProvider.isproductINWishlist(
+                                            productId: currantproduct.productId)
+                                        ? Colors.red
+                                        : Colors.grey,
+                                  ),
                                 ),
-                              ),
                               ],
                             ),
                           ),

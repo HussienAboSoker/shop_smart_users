@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:shop_smart_users/rootscreens.dart';
 
 import 'package:shop_smart_users/screens/auth/pick_image.dart';
+import 'package:shop_smart_users/screens/home/appname.dart';
 import 'package:shop_smart_users/services/app_function.dart';
 import 'package:shop_smart_users/services/validation.dart';
 import 'package:shop_smart_users/widget/custom_textformfiled.dart';
@@ -117,10 +118,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 //Shop Smart
                 const Align(
                   alignment: Alignment.center,
-                  child: CustomTitle(
-                    label: 'Shop Smart',
-                    fontSize: 30,
-                  ),
+                  child: AppName(fontsize: 30,),
                 ),
                 const SizedBox(
                   height: 20,

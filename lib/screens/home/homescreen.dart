@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:shop_smart_users/constants/imagepath.dart';
+import 'package:shop_smart_users/screens/home/appname.dart';
 import 'package:shop_smart_users/screens/home/custom_banner.dart';
 import 'package:shop_smart_users/screens/home/custom_listview_last_prduct.dart';
 import 'package:shop_smart_users/screens/home/cutom_count_gride_view.dart';
@@ -21,7 +22,11 @@ class HomeScreenPage extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(ImagePath.shopingCart),
           ),
-          title:  Text("Shop smart", style: GoogleFonts.montserrat(fontSize: 18, fontWeight: FontWeight.bold),),
+          title: 
+          const AppName()
+
+          
+          // Text("Shop smart", style: GoogleFonts.montserrat(fontSize: 18, fontWeight: FontWeight.bold),),
         ),
         body: const Padding(
           padding: EdgeInsets.all(8.0),

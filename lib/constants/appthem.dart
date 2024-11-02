@@ -5,6 +5,7 @@ class AppThemes {
   static ThemeData themeData(
       {required bool isdarktheme, required BuildContext context}) {
     return ThemeData(
+      
       inputDecorationTheme: InputDecorationTheme(
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.grey, width: 2.0),
@@ -20,7 +21,7 @@ class AppThemes {
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        selectedItemColor:  Colors.blue,
+        selectedItemColor:  Colors.purple,
         unselectedItemColor: isdarktheme ? Colors.white : Colors.black,
       ),
       // iconTheme: IconThemeData(
@@ -39,6 +40,10 @@ class AppThemes {
       // cardColor:
       //     isdarktheme ? AppColors.darkprimary : AppColors.lightcardcolor,
       appBarTheme: AppBarTheme(
+        titleTextStyle: TextStyle(
+          color: Colors.purple,
+          fontSize: 20,
+        ),
           backgroundColor: isdarktheme
               ? AppColors.darkscafuldcolor
               : AppColors.lightscafuldcolor,

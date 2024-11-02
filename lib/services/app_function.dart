@@ -80,8 +80,8 @@ class AppFunction {
   }) {
     return TextButton(
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(color),
-        foregroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: WidgetStateProperty.all(color),
+        foregroundColor: WidgetStateProperty.all(Colors.white),
       ),
       onPressed: onPressed,
       child: Text(label),

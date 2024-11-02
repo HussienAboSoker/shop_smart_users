@@ -24,6 +24,6 @@ class AppContsants {
     Catigorymodel(id: ImagePath.pc, name: "pc", image: ImagePath.pc),
     Catigorymodel(
         id: ImagePath.shapes, name: "shapes", image: ImagePath.shapes),
-    Catigorymodel(id: ImagePath.watch, name: "whatch", image: ImagePath.watch),
+    Catigorymodel(id: ImagePath.watch, name: "watch", image: ImagePath.watch),
   ];
 }

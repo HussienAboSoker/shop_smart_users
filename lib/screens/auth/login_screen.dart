@@ -6,6 +6,7 @@ import 'package:ionicons/ionicons.dart';
 import 'package:shop_smart_users/screens/auth/forgot_password_screen.dart';
 import 'package:shop_smart_users/screens/auth/sin_up_screen.dart';
 import 'package:shop_smart_users/rootscreens.dart';
+import 'package:shop_smart_users/screens/home/appname.dart';
 import 'package:shop_smart_users/services/validation.dart';
 import 'package:shop_smart_users/widget/custom_textformfiled.dart';
 import 'package:shop_smart_users/widget/text/cutom_subtitle.dart';
@@ -78,10 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     //Shop Smart
                     const Align(
                       alignment: Alignment.center,
-                      child: CustomTitle(
-                        label: 'Shop Smart',
-                        fontSize: 30,
-                      ),
+                      child: AppName(fontsize: 30,),
                     ),
                     const SizedBox(
                       height: 20,

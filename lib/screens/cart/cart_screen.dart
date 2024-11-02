@@ -18,6 +18,7 @@ class CartSceen extends StatelessWidget {
     return Scaffold(
       bottomSheet: const ButtomCheckout(),
       appBar: AppBar(
+        
         elevation: 1,
         actions: [
           IconButton(
@@ -44,7 +45,10 @@ class CartSceen extends StatelessWidget {
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Text('Cart(${cartProvider.getcartproducts.length})'),
-        leading: Image.asset(ImagePath.shopingCart,width: 2,),
+        leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+          
+          child: Image.asset(ImagePath.shopingCart,width: 2,)),
       ),
       body: cartProvider.getcartproducts.isEmpty
           ? Center(

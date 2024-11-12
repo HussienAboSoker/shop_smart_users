@@ -42,6 +42,7 @@ class HomeScreenPage extends StatelessWidget {
                 SizedBox(
                   height: 20,
                 ),
+                
                 CustomTitle(label: "latest product"),
                 SizedBox(
                   height: 20,
